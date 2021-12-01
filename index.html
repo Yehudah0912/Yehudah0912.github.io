@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CDN引入的的方法 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>vue实例</title>
+    <style>
+        .text_color {
+            color: blue;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <button-counter>全局注册组件</button-counter>
+        <p>{{msg}}</p>
+        <!-- 解析HTML代码 -->
+        <span v-html="rawhtml"></span>
+        <!-- 绑定数据 -->
+        <p v-bind:class="color">A new color</p>
+        <!-- 支持JS代码 -->
+        <p>{{ msg.split('').reverse().join('') }}</p>
+
+
+        <!-- 渲染数组对象 -->
+        <ul>
+            <li v-for="item, index in items" :key="index">
+                {{index+1+"."}}{{item.msg}}
+            </li>
+            <!-- 绑定点击事件 -->
+            <li><button v-on:click="counter++">数值:{{counter}}</button></li>
+            <!-- 绑定双击事件，添加事件变量 $event | 注意修饰符的使用 eg:'.stop' -->
+            <li><button v-on:dblclick="green('Hello,SuperAdmin', $event)">SuperAdmin</button></li>
+        </ul>
+
+
+        <!-- 渲染对象的属性值 -->
+        <ul>
+            <!-- 绑定的数据in打前的第一个一个形参是值，后面紧跟的是所以可以值 -->
+            <li v-for="value, key in object" :key="key">
+                {{key}} : {{value}}
+            </li>
+        </ul>
+
+
+        <!-- 双向绑定可以设定数据的初始值 -->
+        <table v-if="seen">
+            <tbody width="300">
+                <tr>
+                    <td><label for="namespace">姓名:</td>
+                    <td><input v-model="name" type="text" id="namespace" placeholder="请输入名字"></td>
+                    <td>DATA: {{name}} </td>
+                </tr>
+                <tr>
+                    <td>性别:</td>
+                    <td>
+                        <input v-model="sex" type="radio" id="nan" name="sex" value="男"><label for="nan">男
+                            <input v-model="sex" type="radio" id="nv" name="sex" value="女"><label for="nv">女
+                    </td>
+                    <td>DATA: {{sex}} </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <!-- 数据通过数据提交 -->
+                    <td><button v-on:click="submit()">提交</button></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <!-- 组件化模板 -->
+                    <td colspan="2">
+                        <button-counter v-on:clicknow="clicknow"></button-counter>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <!-- 组件化模板 -->
+                    <td colspan="2">
+                        <test> 组件局部注册</test>
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody>
+
+        </table>
+        <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:title="post.title"></blog-post>
+
+
+
+
+    </div>
+
+
+
+    <script>
+        Vue.config.productionTip = false ;
+        Vue.component('blog-post', {
+            props: ['title'],
+            template: '<h3>{{ title }}</h3>'
+        })
+        // 添加按钮模板--组件名可以通过驼峰法或者-隔开的方式命名 声明的是全局模板
+        //没有应用总会打包会存在浪费资源
+        Vue.component('button-counter', {
+            props: ['cot'], //添加自定义属性
+            data: function () {
+                return {
+                    count: 0
+                }
+            },
+            //slot添加模板扩展槽
+            template:
+                `
+        <div>
+        <button v-on:click="clickfun()">You clicked me {{ count }} times.</button>
+        <slot></slot>
+        </div>
+        `,
+            methods: {
+                clickfun: function () {
+                    this.count++;
+                    // $emit方法,触发事件。{事件名称,可携带的参数}，可以用于子父组件之间的数值传递
+                    this.$emit('clicknow', this.count);
+
+                }
+            },
+
+        })
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: "hello",
+                rawhtml: "<span>解析HTML的代码属性</span>",
+                color: "text_color",
+                name: "吕业浩",
+                sex: "男",
+                seen: true,
+                counter: 0,
+                items: [
+                    { msg: 'Foo' },
+                    { msg: 'Bar' }
+                ],
+                object: {
+                    title: "血与酒",
+                    author: "majico"
+                },
+                posts: [
+                    { id: 1, title: 'My journey with Vue' },
+                    { id: 2, title: 'Blogging with Vue' },
+                    { id: 3, title: 'Why Vue is so fun' }
+                ],
+
+            },
+            methods: {
+                green: function (str, e) {
+                    alert(str);
+                    console.log(e);
+                },
+                // 数据提交
+                submit: function () {
+                    name = this.name;
+                    sex = this.sex;
+                    console.log("收集的信息为:姓名为:" + name + ",性别是:" + sex);
+                },
+                clicknow: function (e) {
+                    this.counter = e;
+                    console.log(e);
+                },
+
+            },
+            components: {
+                test: {
+                    template:
+                        `
+                    <p>华为公司<slot></slot></p>
+                    `
+                }
+            },
+            // 生命周期
+            beforeCreate: function () {
+                console.log('beforeCreate');
+            },
+            created: function () {
+                console.log("created");
+            },
+        });
+        // 检测变化
+        vm.$watch('msg', function (newval, oldval) {
+            console.log(newval, oldval);
+        })
+        // 外部调用修改的时候需要先声明
+        // vm.$data.msg = "test"
+
+
+    </script>
+</body>
+
+</html>
