@@ -1,0 +1,43 @@
+<!--
+ * @Author: yehuda
+ * @Date: 2022-02-11 17:25:21
+ * @LastEditTime: 2022-02-11 17:33:59
+ * @LastEditors: yehuda
+ * @Description: 圆角边框的常用写法
+ * @FilePath: \CSS\radius.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>圆角边框的常用写法</title>
+  <style>
+    .yuanxing {
+      width: 200px;
+      height: 200px;
+      background-color: palevioletred;
+      /* 正方形变为圆形,把数值改为高度或者是宽度的一半 */
+      /* 设置属性值为宽度的一半 */
+      /* border-radius: 100px; */
+      border-radius: 50%;
+    }
+    .yuanjiaojuxing {
+      width: 300px;
+      height: 100px;
+      background-color: palevioletred;
+      /* 矩形变为圆角局限性,将数值设置成高度的一半即可 */
+      border-radius: 50px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 圆形 -->
+  1.圆形做法
+  <div class="yuanxing"></div>
+  <!-- 圆角矩形 -->
+  2.圆角矩形的做法
+  <div class="yuanjiaojuxing"></div>
+</body>
+</html>

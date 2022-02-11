@@ -1,0 +1,54 @@
+<!--
+ * @Author: yehuda
+ * @Date: 2022-01-30 19:48:23
+ * @LastEditTime: 2022-02-04 13:49:47
+ * @LastEditors: yehuda
+ * @Description: 用于练习CSS
+ * @FilePath: \CSS\联系Css.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			a {
+        /* 可以使用Emmet语法 */
+				width: 150px;
+				height: 50px;
+        background-color: skyblue;
+        /* 设置样式为无修饰 */
+        text-decoration: none;
+        /* 把行内元素a转换为块级元素 */
+				display: block;
+			}
+      /* 当行高等于容器高度时字体垂直居中 */
+      a {
+        height: 50px;
+        line-height: 50px;
+      }
+			div {
+				color: purple;
+				font: 20px/1.5 'Microsoft YaHei';
+			}
+			/* ul li 权重 0，0，0，1 + 0，0，0，1 = 0，0，0，2 */
+			ul li {
+				color: green;
+			}
+			/* li 权重 0，0，0，1 */
+			li {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="#">响应式布局</a>
+		<div>
+			<p>
+				龙生龙，凤生凤
+			</p>
+		</div>
+	</body>
+</html>
