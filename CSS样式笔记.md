@@ -581,3 +581,51 @@ float属性用于创建浮动框，将其移动到一边，直到左边缘或右
    > 案例：<a href="https://yehudah0912.github.io/clearfloatByafter.html" target="_blank">after伪元素法实现清除浮动</a>
 
 4. 父级添加双伪元素。
+
+   > 也是给父元素添加。添加`:before` `:after`伪类元素
+   >
+   > 原理：在父元素前后都添加一个容器，使用隔墙法实现。
+   >
+   > 优点：没有增加标签，代码更简洁。结构更简单。
+   >
+   > 缺点：需要照顾低版本浏览器。
+   >
+   > 代表网站：小米、腾讯等。
+   >
+   > 代码：
+   >
+   > ```html
+   >  <style>
+   >    .clearfix:before,.clearfix:after {
+   >      content: '';
+   >      display: table;
+   >    }
+   >    .clearfix:after {
+   >      clear: both;
+   >    }
+   >    .clearfix {
+   >      /* IE6-7兼容IE系列*/
+   >      *zoom: 1;
+   >    }
+   >  </style>
+   >  <body>
+   >    <!-- 添加clearfix样式 -->
+   >    <div class="box clearfix"></div>
+   >  </body>
+   > ```
+   >
+   > 案例：<a href="https://yehudah0912.github.io/clearfloatByDoublePseudo.html" target="_blank">双伪元素法实现清除浮动</a>
+
+### 清除浮动总结
+
+1. 父级没有高度。
+2. 子盒子浮动了。
+3. 影响下面页面标准流的元素布局，需要清除浮动。
+
+| 清除浮动的方式      | 优点               | 缺点                              |
+| ------------------- | ------------------ | --------------------------------- |
+| 额外标签法(隔墙法)  | 通俗易懂，书写方便 | 添加许多无意义的标签，结构化较差  |
+| 父级overflow:hidden | 书写简单           | 溢出隐藏                          |
+| 父级after元素       | 结构语义化正确     | 由于 IE6-7不支持:after,兼容性问题 |
+| 父级双伪类元素      | 结构语义化正确     | 由于 IE6-7不支持:after,兼容性问题 |
+
