@@ -512,9 +512,30 @@ float属性用于创建浮动框，将其移动到一边，直到左边缘或右
    >
    > 优点：通俗易懂，书写方便。
    >
-   > 案例：<a href="https://yehudah0912.github.io/miuifloat.html" target="_blank">额外标签法实现</a>
+   > 缺点：添加许多无意义的标签，结构化较差。
+   >
+   > ==注意：要求添加的**空标签**必须是**块级元素**==
+   >
+   > 案例：<a href="https://yehudah0912.github.io/clearfloat.html" target="_blank">额外标签法实现</a>
+   >
+   > ```html
+   > <style>
+   > /* 添加清除浮动样式 */
+   >   .clear {
+   >     clear: both;
+   >   }
+   > </style>
+   > <div class="box">
+   >   <div class="ermao">二毛</div>
+   >   <!-- 额外标签法 -->
+   >   <div class="clear"></div>
+   > </div>
 
 2. 父级添加overflow属性。
+
+   > 可以给父级添加`overflow`属性，将其属性值设置为`hidden`、`auto`或`scroll`。
+   >
+   > ==注意是给父元素添加代码==
 
 3. 父级添加after伪元素。
 
