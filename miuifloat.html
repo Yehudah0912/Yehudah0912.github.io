@@ -1,0 +1,118 @@
+<!--
+ * @Author: yehuda
+ * @Date: 2022-02-16 14:01:39
+ * @LastEditTime: 2022-02-16 14:58:31
+ * @LastEditors: yehuda
+ * @Description: 小米商城浮动布局
+ * @FilePath: \CSS\miuifloat.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小米商城浮动布局</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      width: 1200px;
+      height: 460px;
+      background-color: pink;
+      text-align: center;
+      margin: 60px auto;
+    }
+    .left {
+      float: left;
+      width: 230px;
+      height: 460px;
+      background-color: purple;
+    }
+    .right {
+      float: right;
+      width: 970px;
+      height: 460px;
+      background-color: skyblue;
+    }
+    .boxList {
+      width: 1226px;
+      height: 285px;
+      background-color: pink;
+      margin: 0 auto;
+      padding: 0;
+    }
+    .boxList li {
+      width: 296px;
+      height: 285px;
+      list-style: none;
+      background-color: purple;
+      float: left;
+      margin-right: 14px;
+
+    }
+    /* 解决权重问题添加boxList */
+    .boxList .lastLi {
+      margin-right: 0;
+    }
+    .bigbox {
+
+      width: 1226px;
+      height: 615px;
+      background-color: pink;
+      margin: 60px auto 70px;
+    }
+    .leftbox {
+      width: 234px;
+      height: 615px;
+      background-color: plum;
+      float: left;
+    }
+    .rightbox {
+      width: 992px;
+      height: 615px;
+      background-color: silver;
+      float: left;
+    }
+    /* 指定父子作用域，只对rightbox下的div作用 */
+    .rightbox>div {
+      width: 234px;
+      height: 300px;
+      background-color: whitesmoke;
+      margin: 0 0 14px 14px ;
+      float:left;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="left">左侧</div>
+    <div class="right">右侧</div>
+  </div>
+  <!-- 浮动元素搭配标准流父盒子 -->
+  <ul class="boxList">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li class="lastLi">4</li>
+  </ul>
+  <!-- 大盒子整合 -->
+  <!-- .bigbox>.left+.right -->
+  <div class="bigbox">
+    <div class="leftbox"></div>
+    <div class="rightbox">
+      <!-- div{$}*8 -->
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+    </div>
+  </div>
+</body>
+</html>
