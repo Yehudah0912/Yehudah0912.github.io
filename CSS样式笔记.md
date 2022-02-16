@@ -536,6 +536,8 @@ float属性用于创建浮动框，将其移动到一边，直到左边缘或右
    > 可以给父级添加`overflow`属性，将其属性值设置为`hidden`、`auto`或`scroll`。
    >
    > ==注意是给父元素添加代码==
+   >
+   > 案例：<a href="https://yehudah0912.github.io/clearfloatByOverflow.html" target="_blank">Overflow法实现</a>
 
 3. 父级添加after伪元素。
 
