@@ -516,7 +516,7 @@ float属性用于创建浮动框，将其移动到一边，直到左边缘或右
    >
    > ==注意：要求添加的**空标签**必须是**块级元素**==
    >
-   > 案例：<a href="https://yehudah0912.github.io/clearfloat.html" target="_blank">额外标签法实现</a>
+   > 案例：<a href="https://yehudah0912.github.io/clearfloat.html" target="_blank">额外标签法实现清除浮动</a>
    >
    > ```html
    > <style>
@@ -537,8 +537,47 @@ float属性用于创建浮动框，将其移动到一边，直到左边缘或右
    >
    > ==注意是给父元素添加代码==
    >
-   > 案例：<a href="https://yehudah0912.github.io/clearfloatByOverflow.html" target="_blank">Overflow法实现</a>
+   > 优点：代码简洁。
+   >
+   > 缺点：无法显示溢出部分。
+   >
+   > 案例：<a href="https://yehudah0912.github.io/clearfloatByOverflow.html" target="_blank">Overflow法实现清除浮动</a>
 
-3. 父级添加after伪元素。
+3. 父级添加:after伪元素。
+
+   > `:after` 方式是额外标签法的升级版。也是给父元素添加。
+   >
+   > 原理：在父元素后面添加一个容器，使用隔墙法实现。
+   >
+   > 优点：没有增加标签，结构更简单。
+   >
+   > 缺点：需要照顾低版本浏览器。
+   >
+   > 代表网站：百度、淘宝、网易等。
+   >
+   > 代码：
+   >
+   > ```html
+   > <style>
+   > 	/* 固定的样式写法 */
+   >   .clearfix:after {
+   >     content: '';
+   >     display: block;
+   >     height: 0;
+   >     clear: both;
+   >     visibility: hidden;
+   >   }
+   >   .clearfix {
+   >     /* IE6-7兼容IE系列*/
+   >     *zoom: 1;
+   >   }
+   > </style>
+   > <body>
+   >   <!-- 添加clearfix样式 -->
+   >   <div class="box clearfix"></div>
+   > </body>
+   > ```
+   >
+   > 案例：<a href="https://yehudah0912.github.io/clearfloatByafter.html" target="_blank">after伪元素法实现清除浮动</a>
 
 4. 父级添加双伪元素。
