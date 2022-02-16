@@ -1,0 +1,67 @@
+<!--
+ * @Author: yehuda
+ * @Date: 2022-02-16 16:52:09
+ * @LastEditTime: 2022-02-16 17:02:36
+ * @LastEditors: yehuda
+ * @Description: 清除浮动额外标签法
+ * @FilePath: \CSS\clearfloat.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>清除浮动额外标签法</title>
+  <style>
+    .box {
+      width: 1226px;
+      margin: 0 auto;
+      background-color: bisque;
+    }
+    .damao {
+      width: 226px;
+      height: 333px;
+      float: left;
+      background-color: cadetblue;
+      margin-left: 14px;
+      margin-bottom: 14px;
+    }
+    .ermao {
+      width: 226px;
+      float: left;
+      height: 333px;
+      background-color: steelblue;
+      margin-left: 14px;
+      margin-bottom: 14px;
+    }
+    .footer {
+      width: 1226px;
+      height: 60px;
+      margin: 0 auto;
+      text-align: center;
+      background-color: gray;
+    }
+    /* 添加清除浮动样式 */
+    .clear {
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <!-- .box>.damao+.ermao -->
+  <div class="box">
+    <div class="damao">大毛</div>
+    <div class="ermao">二毛</div>
+    <div class="ermao">二毛</div>
+    <div class="ermao">二毛</div>
+    <div class="ermao">二毛</div>
+    <div class="ermao">二毛</div>
+    <div class="ermao">二毛</div>
+    <!-- 额外标签法 -->
+    <div class="clear"></div>
+  </div>
+  <!-- 模拟下方标准流元素 -->
+    <div class="footer">模拟页脚</div>
+</body>
+</html>
