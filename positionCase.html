@@ -1,0 +1,190 @@
+<!--
+ * @Author: yehuda
+ * @Date: 2022-02-18 16:29:52
+ * @LastEditTime: 2022-02-19 13:33:19
+ * @LastEditors: yehuda
+ * @Description: 使用定位完善学成在线部分功能
+ * @FilePath: \CSS\positionCase.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>定位案例</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				background-color: #f3f5f7;
+			}
+			.nav {
+				position: sticky;
+				z-index: 1;
+				top: 0;
+				margin: 0 auto;
+				width: 1200px;
+				height: 60px;
+				background-color: #a5a5a5;
+				line-height: 60px;
+				text-align: center;
+			}
+			.father {
+				margin: 60px auto;
+				padding-bottom: 10px;
+				width: 1200px;
+			}
+			li {
+				list-style: none;
+			}
+			a {
+				text-decoration: none;
+				color: #000;
+			}
+			.jingpin_top {
+				margin: 10px;
+				height: 30px;
+				margin-bottom: 0;
+				line-height: 30px;
+			}
+			.jingpin_top h2 {
+				float: left;
+				font-size: 18px;
+				font-weight: normal;
+			}
+			.jingpin_top a {
+				float: right;
+				color: #a5a5a5;
+				font-size: 12px;
+			}
+			.jingpin_body {
+				margin-bottom: 100px;
+			}
+			.jingpin_body ul li a {
+				display: block;
+				position: relative;
+				float: left;
+				margin: 10px 0 0 10px;
+				width: 228px;
+				height: 270px;
+				background-color: #ffffff;
+			}
+			.jingpin_body ul li a > .hot {
+				position: absolute;
+				top: 0px;
+				right: -4px;
+			}
+			.jingpin_body ul li a:hover {
+				box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.2);
+				transform: translateY(-5px);
+			}
+			.jingpin_body p:nth-child(2) {
+				margin: 22px 20px 0;
+				font-size: 14px;
+			}
+			.jingpin_body p:nth-child(3) {
+				margin: 18px 20px 0;
+				color: #a4aaaa;
+				font-size: 12px;
+			}
+			.jingpin_body p:nth-child(3) span {
+				color: #ff8f4c;
+			}
+			.jingpin_body p:nth-child(3) em {
+				margin: 0 5px 0 3px;
+				color: #ebe4e0;
+				font-style: normal;
+			}
+			.toTop {
+				position: fixed;
+				left: 50%;
+				bottom: 100px;
+				margin-left: 595px;
+				width: 50px;
+				height: 50px;
+				background: url(img/toTop.png);
+				background-size: 100%;
+				opacity: 0.35;
+				overflow: hidden;
+				display: block;
+				text-indent: -999em;
+				cursor: pointer;
+			}
+			.toTop>a {
+				color: #666;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="nav">我是导航栏</div>
+		<div class="father">
+			<div class="jingpin_top">
+				<h2 id="top">精品推荐</h2>
+				<a href="#" onclick="return false">查看全部</a>
+			</div>
+			<div class="jingpin_body">
+				<ul>
+					<li>
+						<a href="#" onclick="return false">
+							<img src="./img/class1.png" />
+							<p>Think PHP 5.0 博客系统实战项目演练</p>
+							<p><span>高级</span><em>|</em>1125人学习</p>
+							<img class="hot" src="./img/hot.png" />
+						</a></li>
+						<li><li><a href="#" onclick="return false"></a></li></li>
+						<li><li><a href="#" onclick="return false"></a></li></li>
+						<li><a href="#" onclick="return false">
+							<img src="./img/class2.png" />
+							<p>Android 网络图片加载框架详解</p>
+							<p><span>高级</span><em>|</em>1125人学习</p>
+						</a></li>
+						<li><a href="#" onclick="return false"></a></li>
+						<li><a href="#" onclick="return false"></a></li>
+						<li><a href="#" onclick="return false"></a></li>
+						<li>
+							<a href="#" onclick="return false">
+								<img src="./img/class3.png" />
+								<p>Angular 2 最新框架+主流技术+项目实战</p>
+								<p><span>初级</span><em>|</em>1225人学习</p>
+							</a>
+						</li>
+						<li><a href="#" onclick="return false"></a></li>
+						<li><a href="#" onclick="return false"></a></li>
+						<li><a href="#" onclick="return false"></a></li>
+						<li><a href="#" onclick="return false"></a></li>
+					<li>
+						<a href="#" onclick="return false">
+							<img class="hot" src="./img/hot.png" />
+							<img src="./img/class1.png" />
+							<p>Think PHP 5.0 博客系统实战项目演练</p>
+							<p><span>高级</span><em>|</em>1125人学习</p>
+						</a></li>
+						<li><li><a href="#" onclick="return false"></a></li></li>
+						<li><li><a href="#" onclick="return false"></a></li></li>
+						<li><a href="#" onclick="return false">
+							<img src="./img/class2.png" />
+							<p>Android 网络图片加载框架详解</p>
+							<p><span>高级</span><em>|</em>1125人学习</p>
+						</a></li>
+						<li><a href="#" onclick="return false"></a></li>
+						<li><a href="#" onclick="return false"></a></li>
+						<li><a href="#" onclick="return false"></a></li>
+						<li>
+							<a href="#" onclick="return false">
+								<img src="./img/class3.png" />
+								<p>Angular 2 最新框架+主流技术+项目实战</p>
+								<p><span>初级</span><em>|</em>1225人学习</p>
+							</a>
+						</li>
+						<li><a href="#" onclick="return false"></a></li>
+						<li><a href="#" onclick="return false"></a></li>
+						<li><a href="#" onclick="return false"></a></li>
+						<li><a href="#" onclick="return false"></a></li>
+				</ul>
+			</div>
+			<a class="toTop" href="#top"></a>
+		</div>
+	</body>
+</html>
