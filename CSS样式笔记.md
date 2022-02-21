@@ -1073,6 +1073,8 @@ IcoMoon成立于2011年，推出了第一个自定义图标字体生成器，它
 
 ![image-20220221143120552](https://gitee.com/lvyehao/assets/raw/master/img/image-20220221143120552.png)
 
+字体案例：[字体图标的使用](https://yehudah0912.github.io/iconFontTest..html)
+
 ## CSS三角
 
 网页中常见一些三角形，使用CSS直接画出来就可以，不必做成图片或者字体图标。
