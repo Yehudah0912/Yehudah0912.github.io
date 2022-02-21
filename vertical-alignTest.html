@@ -1,0 +1,42 @@
+<!--
+ * @Author: yehuda
+ * @Date: 2022-02-21 17:01:09
+ * @LastEditTime: 2022-02-21 17:44:21
+ * @LastEditors: yehuda
+ * @Description: vertical-align属性应用
+ * @FilePath: \CSS\vertical-alignTest.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vertical-align属性应用</title>
+  <style>
+    .box1 {
+      display: inline-block;
+      margin-right: 5px;
+      width: 23px;
+      height: 23px;
+      /* 精灵图定位 */
+      background: url(img/sprites.png) no-repeat -157px -107px;
+      /* 底线对齐 */
+      vertical-align:bottom;
+    }
+    .box2 {
+      display: block;
+      margin-top: 30px;
+      width: 56px;
+      height: 56px;
+      background: url(img/sprites.png) no-repeat center;
+      background-position: -184px -0;
+      outline: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="box1"></div><span>Just leave me alone,alright? I'll be fine.</span>
+  <div class="box2"></div>
+</body>
+</html>

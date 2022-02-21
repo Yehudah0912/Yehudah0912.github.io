@@ -1255,23 +1255,74 @@ outline语法
 
 **注意：**如果某个元素块的[`overflow`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow)属性被设置`visible`，则该属性被设置为`resize`无效。
 
+综合案例：https://yehudah0912.github.io/UserInterfaceStyle.html
 
 
 
+## vertical-align属性应用
+
+CSS 的属性 **`vertical-align`** 用来指定行内元素（inline）或表格单元格（table-cell）元素的垂直对齐方式。
+
+CSS的vertical-align属性的使用场景：经常用于设置图片或者表单(行内块元素)和文字垂直对齐。
+
+官方解释：用于设置一个元素的垂直对齐方式，但是它只针对于行内元素或者行内块元素有效。
+
+![image-20220221163745581](https://gitee.com/lvyehao/assets/raw/master/img/image-20220221163745581.png)
+
+### 图片、表单和文字对齐
+
+图片、表单都属于行内块元素，默认的vertical-align是基线对齐。
+
+此时可以给图片、表单这些行内块元素的vertical-align属性设置为middle就可以让文字和图片垂直居中对齐了。
 
 
 
+vertical-align属性可被用于两种环境：
 
+- 使行内元素盒模型与其行内元素容器垂直对齐。例如，用于垂直对齐一行文本内的图片：
 
+  ![image-20220221163444899](https://gitee.com/lvyehao/assets/raw/master/img/image-20220221163444899.png)
 
+- 垂直对齐表格单元内容:
 
+![image-20220221163547187](https://gitee.com/lvyehao/assets/raw/master/img/image-20220221163547187.png)
 
+注意 `vertical-align` 只对==行内元素、行内块元素和表格单元格元素生效==：不能用它垂直对齐块级元素。
 
+语法:
 
+```
+/* Keyword values */
+vertical-align: baseline;
+vertical-align: sub;
+vertical-align: super;
+vertical-align: text-top;
+vertical-align: text-bottom;
+vertical-align: middle;
+vertical-align: top;
+vertical-align: bottom;
 
+/* <length> values */
+vertical-align: 10em;
+vertical-align: 4px;
 
+/* <percentage> values */
+vertical-align: 20%;
 
+/* Global values */
+vertical-align: inherit;
+vertical-align: initial;
+vertical-align: unset;
+```
 
+### 解决图片底部默认空白缝隙问题
+
+bug:图片底侧会有一个空白间隙，原因是行内块元素会和文字的基线对齐。
+
+主要解决方法有两种：
+
+1. 给图片添加`vertical-align:middle|top|bottom`等。(提倡使用的)
+2. 把图片转换为块级元素`displa：block;`
 
 
 
