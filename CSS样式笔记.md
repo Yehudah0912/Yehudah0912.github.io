@@ -1081,7 +1081,7 @@ IcoMoon成立于2011年，推出了第一个自定义图标字体生成器，它
 
 ![image-20220221144043366](https://gitee.com/lvyehao/assets/raw/master/img/image-20220221144043366.png)
 
-
+要点：设置盒子宽高为0，设置边框其余边为透明。
 
 语法： 
 
@@ -1105,11 +1105,183 @@ IcoMoon成立于2011年，推出了第一个自定义图标字体生成器，它
 
 ![image-20220221144323628](https://gitee.com/lvyehao/assets/raw/master/img/image-20220221144323628.png)
 
-京东三角对话框案例：[]()
+京东三角对话框案例：[CSS三角案例](https://yehudah0912.github.io/triangle.html)
 
-
+效果图：
 
 ![image-20220221145621255](https://gitee.com/lvyehao/assets/raw/master/img/image-20220221145621255.png)
+
+## CSS用户界面样式
+
+### 什么是界面样式
+
+所谓的界面样式，就是更改一些用户操作样式，以便提高更好的用户体验。
+
+- 更改用户的鼠标样式
+- 表单轮廓
+- 防止表单域拖拽
+
+### 鼠标样式 cursor
+
+语法：`选择器 {cursor:属性值}`
+
+> /* 关键字值 */
+> cursor: pointer;
+> cursor: auto;
+>
+> /* 使用URL，并提供一个关键字值作为备用 */
+> cursor: url(hand.cur), pointer;
+>
+> /* URL和xy的坐标偏移值，最后提供一个关键字值作为备用 */
+> cursor:  url(cursor1.png) 4 12, auto;
+> cursor:  url(cursor2.png) 2 2, pointer;
+>
+> /* 全局属性 */
+> cursor: inherit;
+> cursor: initial;
+> cursor: unset;
+
+cursor属性为零个或多个值，它们之间用逗号分隔，最后必填一个关键字值。每个<url>指向一个图像文件。浏览器将尝试加载指定的第一个图像，如果无法加载则返回下一个图像，如果无法加载图像或未指定图像，则使用关键字值代表的指针类型。
+
+每个<url>后面都可选跟一对空格分隔的数字<x><y>表示偏移。它们用来设置指针的热点(即自定义图标的实际点击位置)，位置相对于图标的左上角。
+
+例如，下面的例子使用<url>值指定两个图像，为第二个图像提供<x><y>坐标，如果两个图像都无法加载，则返回`progress`关键字值：
+
+```css
+cursor: url(one.svg), url(two.svg) 5 5, progress;
+```
+
+| 属性值      | 描述                                                         |
+| ----------- | ------------------------------------------------------------ |
+| *url*       | 需使用的自定义光标的 URL。注释：请在此列表的末端始终定义一种普通的光标，以防没有由 URL 定义的可用光标。 |
+| default     | 默认光标（通常是一个箭头）                                   |
+| auto        | 默认。浏览器设置的光标。                                     |
+| crosshair   | 光标呈现为十字线。                                           |
+| pointer     | 光标呈现为指示链接的指针（一只手）                           |
+| move        | 此光标指示某对象可被移动。                                   |
+| e-resize    | 此光标指示矩形框的边缘可被向右（东）移动。                   |
+| ne-resize   | 此光标指示矩形框的边缘可被向上及向右移动（北/东）。          |
+| nw-resize   | 此光标指示矩形框的边缘可被向上及向左移动（北/西）。          |
+| n-resize    | 此光标指示矩形框的边缘可被向上（北）移动。                   |
+| se-resize   | 此光标指示矩形框的边缘可被向下及向右移动（南/东）。          |
+| sw-resize   | 此光标指示矩形框的边缘可被向下及向左移动（南/西）。          |
+| s-resize    | 此光标指示矩形框的边缘可被向下移动（南）。                   |
+| w-resize    | 此光标指示矩形框的边缘可被向左移动（西）。                   |
+| text        | 此光标指示文本。                                             |
+| wait        | 此光标指示程序正忙（通常是一只表或沙漏）。                   |
+| help        | 此光标指示可用的帮助（通常是一个问号或一个气球）。           |
+| not-allowed | 禁止                                                         |
+
+| 类型            | CSS值                                                        |                                                              | 描述                                                         |
+| :-------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| General         | `auto`                                                       |                                                              | 浏览器根据当前内容决定指针样式 例如当是内容是文字时使用text样式 |
+| `default`       | ![default.gif](https://developer.mozilla.org/@api/deki/files/3438/=default.gif) | 默认指针，通常是箭头。                                       |                                                              |
+| `none`          |                                                              | 无指针被渲染                                                 |                                                              |
+| 链接及状态      | `context-menu`                                               | ![context-menu.png](https://developer.mozilla.org/@api/deki/files/3461/=context-menu.png) | 指针下有可用内容目录。                                       |
+| `help`          | ![help.gif](https://developer.mozilla.org/@api/deki/files/3442/=help.gif) | 指示帮助                                                     |                                                              |
+| `pointer`       | ![pointer.gif](https://developer.mozilla.org/@api/deki/files/3449/=pointer.gif) | 悬浮于连接上时，通常为手                                     |                                                              |
+| `progress`      | ![progress.gif](https://developer.mozilla.org/@api/deki/files/3450/=progress.gif) | 程序后台繁忙，用户仍可交互 (与`wait相反`).                   |                                                              |
+| `wait`          | ![wait.gif](https://developer.mozilla.org/@api/deki/files/3457/=wait.gif) | 程序繁忙，用户不可交互 (与`progress相反`).图标一般为沙漏或者表。 |                                                              |
+| 选择            | `cell`                                                       | ![cell.gif](https://developer.mozilla.org/@api/deki/files/3434/=cell.gif) | 指示单元格可被选中                                           |
+| `crosshair`     | ![crosshair.gif](https://developer.mozilla.org/@api/deki/files/3437/=crosshair.gif) | 交叉指针，通常指示位图中的框选                               |                                                              |
+| `text`          | ![text.gif](https://developer.mozilla.org/files/3809/text.gif) | 指示文字可被选中                                             |                                                              |
+| `vertical-text` | ![vertical-text.gif](https://developer.mozilla.org/@api/deki/files/3456/=vertical-text.gif) | 指示垂直文字可被选中                                         |                                                              |
+| 拖拽            | `alias`                                                      | ![alias.gif](https://developer.mozilla.org/@api/deki/files/3432/=alias.gif) | 复制或快捷方式将要被创建                                     |
+| `copy`          | ![copy.gif](https://developer.mozilla.org/@api/deki/files/3436/=copy.gif) | 指示可复制                                                   |                                                              |
+| `move`          | ![move.gif](https://developer.mozilla.org/@api/deki/files/3443/=move.gif) | 被悬浮的物体可被移动                                         |                                                              |
+| `no-drop`       | ![no-drop.gif](https://developer.mozilla.org/@api/deki/files/3445/=no-drop.gif) | 当前位置不能扔下 [bug 275173](https://bugzilla.mozilla.org/show_bug.cgi?id=275173)Windows或Mac OS X中 "no-drop 与not-allowed相同". |                                                              |
+| `not-allowed`   | ![not-allowed.gif](https://developer.mozilla.org/@api/deki/files/3446/=not-allowed.gif) | 不能执行                                                     |                                                              |
+| `grab`          | ![grab.gif](https://developer.mozilla.org/@api/deki/files/3440/=grab.gif) | 可抓取译者注:grab和grabbing在比较后期才被支持，见浏览器兼容表 |                                                              |
+| `grabbing`      | ![grabbing.gif](https://developer.mozilla.org/@api/deki/files/3441/=grabbing.gif) | 抓取中                                                       |                                                              |
+| 重设大小及滚动  | `all-scroll`                                                 | ![all-scroll.gif](https://developer.mozilla.org/@api/deki/files/3433/=all-scroll.gif) | 元素可任意方向滚动 （平移）. [bug 275174](https://bugzilla.mozilla.org/show_bug.cgi?id=275174)Windows中, "*all-scroll* 与 *move相同*". |
+| `col-resize`    | ![col-resize.gif](https://developer.mozilla.org/@api/deki/files/3435/=col-resize.gif) | 元素可被重设宽度。通常被渲染为中间有一条竖线分割的左右两个箭头 |                                                              |
+| `row-resize`    | ![row-resize.gif](https://developer.mozilla.org/@api/deki/files/3451/=row-resize.gif) | 元素可被重设高度。通常被渲染为中间有一条横线分割的上下两个箭头 |                                                              |
+| `n-resize`      | ![Example of a resize towards the top cursor](https://developer.mozilla.org/files/4083/n-resize.gif) | 某条边将被移动。例如元素盒的东南角被移动时`使用se-resize`    |                                                              |
+| `e-resize`      | ![Example of a resize towards the right cursor](https://developer.mozilla.org/files/4085/e-resize.gif) |                                                              |                                                              |
+| `s-resize`      | ![Example of a resize towards the bottom cursor ](https://developer.mozilla.org/files/4087/s-resize.gif) |                                                              |                                                              |
+| `w-resize`      | ![Example of a resize towards the left cursor](https://developer.mozilla.org/files/4089/w-resize.gif) |                                                              |                                                              |
+| `ne-resize`     | ![Example of a resize towards the top-right corner cursor](https://developer.mozilla.org/files/4091/ne-resize.gif) |                                                              |                                                              |
+| `nw-resize`     | ![Example of a resize towards the top-left corner cursor](https://developer.mozilla.org/files/4093/nw-resize.gif) |                                                              |                                                              |
+| `se-resize`     | ![Example of a resize towards the bottom-right corner cursor](https://developer.mozilla.org/files/4097/se-resize.gif) |                                                              |                                                              |
+| `sw-resize`     | ![Example of a resize towards the bottom-left corner cursor](https://developer.mozilla.org/files/4095/sw-resize.gif) |                                                              |                                                              |
+| `ew-resize`     | ![3-resize.gif](https://developer.mozilla.org/files/3806/3-resize.gif) | 指示双向重新设置大小                                         |                                                              |
+| `ns-resize`     | ![6-resize.gif](https://developer.mozilla.org/files/3808/6-resize.gif) |                                                              |                                                              |
+| `nesw-resize`   | ![1-resize.gif](https://developer.mozilla.org/files/3805/1-resize.gif) |                                                              |                                                              |
+| `nwse-resize`   | ![4-resize.gif](https://developer.mozilla.org/files/3807/4-resize.gif) |                                                              |                                                              |
+| 缩放            | `zoom-in`                                                    | ![zoom-in.gif](https://developer.mozilla.org/@api/deki/files/3459/=zoom-in.gif) | 指示可被放大或缩小                                           |
+| `zoom-out`      | ![zoom-out.gif](https://developer.mozilla.org/@api/deki/files/3460/=zoom-out.gif) |                                                              |                                                              |
+
+
+
+### 取消表单轮廓线outline属性
+
+语法：`outline: none/0`
+
+outline语法
+
+> ```
+> /* 样式 */
+> outline: solid;
+> 
+> /* 颜色 | 样式 */
+> outline: #f66 dashed;
+> 
+> /* 样式 | 宽度 */
+> outline: inset thick;
+> 
+> /* 颜色 | 样式 | 宽度 */
+> outline: green solid 3px;
+> 
+> /* 全局值 */
+> outline: inherit;
+> outline: initial;
+> outline: unset;
+> ```
+
+**注意：**对于很多元素来说，如果没有设置样式，轮廓是不可见的。因为样式（style）的默认值是 `none`。但 `input` 元素是例外，其样式默认值由浏览器决定。
+
+### 取消拖拽文本域resize属性
+
+语法：`resize:none`
+
+ **`resize`** CSS 属性允许你控制一个元素的可调整大小性。
+
+| 属性值     | 描述                                     |
+| ---------- | ---------------------------------------- |
+| none       | 元素不能被用户缩放                       |
+| both       | 允许用户在水平和垂直方向上调整元素的大小 |
+| horizontal | 允许用户在水平方向上调整元素的大小       |
+| vertical   | 允许用户在垂直方向上调整元素的大小。     |
+
+**注意：**如果某个元素块的[`overflow`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow)属性被设置`visible`，则该属性被设置为`resize`无效。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
