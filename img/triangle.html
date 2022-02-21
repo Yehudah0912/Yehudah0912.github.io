@@ -1,0 +1,58 @@
+<!--
+ * @Author: yehuda
+ * @Date: 2022-02-21 14:35:53
+ * @LastEditTime: 2022-02-21 14:55:25
+ * @LastEditors: yehuda
+ * @Description: 制作三角形|京东对话框三角形突出的做法
+ * @FilePath: \CSS\img\triangle.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS三角形的做法</title>
+  <style>
+    .box {
+      /* 设置盒子宽高为0px */
+      width: 0;
+      height: 0;
+      /* 解决低版本兼容性 */
+      line-height: 0;
+      font-size: 0;
+      /* 需要那条边为底就，设置其他边为透明色 */
+      border-bottom: 100px transparent solid;
+      border-left: 100px transparent solid;
+      border-right: 100px transparent solid;
+      border-top: 100px pink solid;
+    }
+    .jd {
+      position: relative;
+      width: 600px;
+      height: 300px;
+      background-color: pink;
+      line-height: 300px;
+      text-align: center;
+    }
+    .jd .triangle {
+      position: absolute;
+      top: -40px;
+      right: 15px;
+      width: 0;
+      height: 0;
+      line-height: 0;
+      font-size: 0;
+      border: 20px solid transparent;
+      border-bottom: 20px solid pink;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <div class="jd">
+    <span class="triangle"></span>
+    京东对话框三角形突出的做法
+  </div>
+</body>
+</html>
