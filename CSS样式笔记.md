@@ -1326,9 +1326,47 @@ bug:图片底侧会有一个空白间隙，原因是行内块元素会和文字�
 
 
 
+应用案例 **https://yehudah0912.github.io/vertical-alignTest.html**
 
 
 
+## 溢出文字省略号显示
+
+### 单行文本溢出
+
+单行文本溢出显示省略号--必须满足三个条件
+
+```css
+.box>p {
+  /* 1.先强制一行内显示文本 */
+  white-space: nowrap;
+  /* 2.超出部分隐藏 */
+  overflow: hidden;
+  /* 3.文字用省略号代替超出部分 */
+  text-overflow: ellipsis;
+}
+```
+
+### 多行文本溢出
+
+多行文本溢出显示省略号，有较大的兼容性问题，适用于webKit浏览器或移动端(移动端大部分是webKit内核)。
+
+```css
+.multiple {
+  /* 1.超出部分隐藏 */
+  overflow: hidden;
+  /* 2.文字用省略号代替超出部分 */
+  text-overflow: ellipsis;
+  /* 弹性伸缩盒子模型显示 */
+  display: -webkit-box;
+  /* 限制在一个块元素显示的文本行数 */
+  -webkit-line-clamp: 3;
+  /* 设置或检索伸缩对象的子元素的排列方式 */
+  -webkit-box-orient: vertical;
+}
+```
+
+完整案例：
 
 
 
