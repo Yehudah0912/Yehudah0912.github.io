@@ -1,0 +1,224 @@
+<!--
+ * @Author: yehuda
+ * @Date: 2022-02-22 11:52:45
+ * @LastEditTime: 2022-02-22 16:55:41
+ * @LastEditors: yehuda
+ * @Description: ## 常见布局技巧
+巧妙利用一个技术更快更好的布局
+### margin负值的运用
+### 文字围绕浮动元素
+### 行内块的巧妙运
+### CSS三角强化
+ * @FilePath: \CSS\collectSkill.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>常见布局技巧</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			.boxBig {
+				width: 1200px;
+				margin: 20px auto;
+			}
+			ul {
+				overflow: hidden;
+				padding-left: 3px;
+			}
+      .box1 {
+        margin-bottom: 15px;
+      }
+			.box1 > ul > li {
+				float: left;
+				width: 150px;
+				height: 200px;
+				margin-left: -3px;
+				border: 3px solid blue;
+				list-style: none;
+			}
+			/* 当盒子没有需要定位时 */
+			.box1 > ul > li:hover {
+				position: relative;
+				border: 3px solid red;
+			}
+			/* 当盒子需要定位时 */
+			.box1 > ul > li:hover {
+				z-index: 1;
+				border: 3px solid red;
+			}
+			.box2 {
+				width: 300px;
+				height: 70px;
+				background-color: skyblue;
+				margin-top: 10px;
+        margin-bottom: 20px;
+				padding: 5px;
+			}
+			.box2 > .pic {
+				float: left;
+				width: 120px;
+				height: 100%;
+				margin-right: 5px;
+				background-color: pink;
+			}
+			.box2 > p {
+				overflow: hidden;
+				display: -webkit-box;
+				font-size: 14px;
+				text-overflow: ellipsis;
+				-webkit-line-clamp: 3;
+				-webkit-box-orient: vertical;
+			}
+			.box2 > .pic img {
+				width: 100%;
+				height: 100%;
+			}
+      .pagination {
+        /* text-align: center; */
+        margin-top: 15px;
+        margin-bottom: 20px;
+      }
+      .pagination>a{
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        background-color: #f7f7f7;
+        border: 1px solid #ccc;
+        text-align: center;
+        text-decoration: none;
+        line-height: 36px;
+        color: #333;
+      }
+      .pagination> .prev, .pagination> .next{
+        width: 80px;
+        font-size: 14px;
+      }
+      .pagination>.current, .pagination>.elp {
+        background-color: #fff;
+        border:none;
+      }
+      .pagination>.skipFor {
+        height: 36px;
+        width: 45px;
+        border: 1px solid #ccc;
+        outline: none;
+      }
+      .pagination>.skipEnter {
+        height: 36px;
+        width: 45px;
+        background-color: #f7f7f7;
+        border: 1px solid #ccc;
+      }
+      .miaosha {
+        height: 300px;
+        margin: 20px auto;
+      }
+      .miaosha .advertisingTitle {
+        width: 190px;
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: 14px;
+        text-overflow: ellipsis;
+      }
+      .miaosha .advertisingBody {
+        position: relative;
+        width: 200px;
+        height: 30px;
+        margin-top: 10px;
+        background-color: #e01222;
+        line-height: 30px;
+        font-weight: 700;
+        color: #ffff;
+      }
+      .miaosha .advertisingBody span{
+        padding-left: 10px;
+      }
+      .discount {
+        position: absolute;
+        top: 0px;
+        left: 100px;
+        width: 97px;
+        height: 26px;
+        margin: 2px;
+      }
+      .triangle {
+        float: left;
+        width: 0;
+        height: 0;
+        line-height: 0;
+        font-size: 0;
+        border-color: transparent #ffff transparent transparent;
+        border-style: solid;
+        border-width: 26px 20px 0 0;
+      }
+      .rectangle {
+        float: left;
+        width: 76px;
+        height: 26px;
+        background-color: #ffff;
+      }
+      .discountFont {
+        line-height: 26px;
+        color: rgba(0, 0, 0, .4);
+        font-size: 13px;
+        text-decoration:line-through;
+      }
+		</style>
+	</head>
+	<body>
+		<div class="boxBig">
+			<div class="box1">
+				<h2>margin负值的运用</h2>
+				<p>解决浮动后细线边框重叠导致的1+1=2问题</p>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+			<h2>文字围绕浮动元素</h2>
+			<div class="box2">
+				<div class="pic">
+					<img src="img/tudouOne.jpg" alt="反贪风暴" />
+				</div>
+				<p>疾风怒雨，禽鸟戚戚；霁日光风，草木欣欣。可见天地不可一日无和气，人心不可一日无喜神</p>
+			</div>
+			<h2>行内块的巧妙运用</h2>
+			<div class="pagination">
+				<a href="#" onclick="return false;" class="prev">&lt;&lt;上一页</a>
+				<a href="#" onclick="return false;" class="current">2</a>
+				<a href="#" onclick="return false;">3</a>
+				<a href="#" onclick="return false;">4</a>
+				<a href="#" onclick="return false;">5</a>
+				<a href="#" onclick="return false;">6</a>
+				<a href="#" onclick="return false;" class="elp">...</a>
+				<a href="#" onclick="return false;" class="next">&gt;&gt;下一页</a>
+        到第
+        <input class="skipFor" type="text">
+        页
+        <button class="skipEnter">确定</button>
+			</div>
+      <h2>CSS三角强化</h2>
+      <div class="miaosha">
+        <p class="advertisingTitle">小刀电动车 新国际48V男女款电动车</p>
+        <div class="advertisingBody">
+          <span>￥1749.00</span>
+          <div class="discount">
+          <div class="triangle"></div>
+          <div class="rectangle">
+            <p class="discountFont">￥2299.00</p>
+          </div>
+        </div>
+        </div>
+      </div>
+		</div>
+	</body>
+</html>
