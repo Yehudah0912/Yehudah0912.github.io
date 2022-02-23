@@ -1,0 +1,90 @@
+<!--
+ * @Author: yehuda
+ * @Date: 2022-02-23 10:19:56
+ * @LastEditTime: 2022-02-23 11:45:47
+ * @LastEditors: yehuda
+ * @Description: CSS3新增选择器
+ * @FilePath: \CSS\cs3selector.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>CSS3新增选择器</title>
+		<style>
+      /* 字体声明 */
+			@font-face {
+				font-family: 'icomoon';
+				src: url('fonts/icomoon.eot?dyakgf');
+				src: url('fonts/icomoon.eot?dyakgf#iefix') format('embedded-opentype'),
+					url('fonts/icomoon.ttf?dyakgf') format('truetype'),
+					url('fonts/icomoon.woff?dyakgf') format('woff'),
+					url('fonts/icomoon.svg?dyakgf#icomoon') format('svg');
+				font-weight: normal;
+				font-style: normal;
+				font-display: block;
+			}
+      /* 属性选择器:选择以icon开头的元素 */
+			.box p[class^='icon'] {
+        color: blue;
+			}
+      /* 结构伪类选择器:选择box下p的第偶数个元素 */
+      /* even偶数 odd奇数 */
+      .box p:nth-child(even) {
+        color: red;
+      }
+      /* nth-child(n) 从0开始 每次加1 往后面计算 这里面必须是n 不能是其他的字母 选择了所有奇数孩子 */
+      .box2 p:nth-child(2n-1) {
+        color: sandybrown;
+      }
+      /* nth-child(n) 从0开始 每次加1 往后面计算 这里面必须是n 不能是其他的字母 选择了前2个 */
+      .box2 p:nth-child(-n+2) {
+        font-weight: 700;
+      }
+      .box3 {
+        position: relative;
+        width: 300px;
+        height: 40px;
+        background-color: pink;
+      }
+      /* 在伪元素选择器之前显示 */
+      /* .box3权重10 ::before权重1 10+1=11 */
+      .box3::before {
+        content: '我';
+      }
+      /* 在伪元素选择器之后显示 */
+      .box3::after {
+        content: '勤劳的小蜜蜂';
+      }
+      .box3::after {
+        font-family: 'icomoon';
+        position: absolute;
+        right: 30px;
+        content: '';
+        line-height: 40px;
+      }
+
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<p class="icon1">属性选择器</p>
+			<p class="icon2">属性选择器</p>
+			<p class="icon3">属性选择器</p>
+			<p class="data-icon4">属性选择器</p>
+			<p class="icon5">属性选择器</p>
+		</div>
+		<div class="box2">
+			<p class="icon1">属性选择器</p>
+			<p class="icon2">属性选择器</p>
+			<p class="icon3">属性选择器</p>
+			<p class="data-icon4">属性选择器</p>
+			<p class="icon5">属性选择器</p>
+		</div>
+    <div class="box3">
+        是勤劳的小蜜蜂
+    </div>
+	</body>
+</html>
