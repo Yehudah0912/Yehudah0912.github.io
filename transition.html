@@ -1,7 +1,7 @@
 <!--
  * @Author: yehuda
  * @Date: 2022-02-23 14:41:58
- * @LastEditTime: 2022-02-23 17:23:56
+ * @LastEditTime: 2022-02-23 17:42:33
  * @LastEditors: yehuda
  * @Description: /filter/calc/过渡效果案例
  * @FilePath: \CSS\transition.html
@@ -27,6 +27,7 @@
       /* 多个变换值复合写法 */
       transition: width .5s, padding .5s;
     }
+    /* 伪类选择器 */
     .box::after {
       display: block;
       position:absolute;
@@ -39,9 +40,11 @@
       transition: display .5s,height .2s;
 
     }
+    /* 属性选择器 */
     .box img[src]{
       /* 计算函数 运算符和值之间要有空格 */
       width: calc(100% - 20px);
+      /* 过滤器修改图片的模糊度 */
       filter: blur(3px);
       transition: filter .3s;
     }
@@ -72,8 +75,9 @@
     .miui:hover {
       background-position: -46px;
     }
+    /* 全局变量声明 */
     :root {
-      --width: calc(60%);
+      --width: calc(20%);
       --hight:15px;
       --color:#e01222;
     }
