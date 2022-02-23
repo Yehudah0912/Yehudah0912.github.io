@@ -1,0 +1,48 @@
+<!--
+ * @Author: yehuda
+ * @Date: 2022-02-22 17:30:01
+ * @LastEditTime: 2022-02-23 10:16:08
+ * @LastEditors: yehuda
+ * @Description: H5+C3特性整合
+ * @FilePath: \CSS\theNewC3.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			header {
+				height: 60px;
+				width: 800px;
+				margin: 15px auto;
+				background-color: pink;
+				border-radius: 15px;
+			}
+			section {
+				width: 500px;
+				height: 300px;
+				background-color: skyblue;
+			}
+      /* 使用伪类修改元素内容 */
+      input::placeholder {
+        color: rgba(255, 0, 0, .8);
+      }
+      /* 必须是input 并且同时具有value这个属性 选择这个元素 */
+      input[value*='默认'] {
+        color: blue;
+      }
+		</style>
+	</head>
+	<body>
+		<header></header>
+		<section>某个区域</section>
+		<form action="#">
+			<input type="text" placeholder="请输入内容..." />
+      <!-- 利用属性选择器就可以不用借助于类或者id选择器 -->
+      <input type="text" value="默认内容...">
+		</form>
+	</body>
+</html>
