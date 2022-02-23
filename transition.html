@@ -1,0 +1,115 @@
+<!--
+ * @Author: yehuda
+ * @Date: 2022-02-23 14:41:58
+ * @LastEditTime: 2022-02-23 17:23:56
+ * @LastEditors: yehuda
+ * @Description: /filter/calc/过渡效果案例
+ * @FilePath: \CSS\transition.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>filter/calc/过渡效果案例</title>
+  <style>
+    * {
+      margin: 0;
+      padding:0;
+      box-sizing: border-box;
+    }
+    .box {
+      position: relative;
+      width: 300px;
+      padding: 30px;
+      margin: 6px 12px;
+      /* 多个变换值复合写法 */
+      transition: width .5s, padding .5s;
+    }
+    .box::after {
+      display: block;
+      position:absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: aqua;
+      content: '';
+      transition: display .5s,height .2s;
+
+    }
+    .box img[src]{
+      /* 计算函数 运算符和值之间要有空格 */
+      width: calc(100% - 20px);
+      filter: blur(3px);
+      transition: filter .3s;
+    }
+    .box:hover {
+      width: 400px;
+      padding: 0;
+    }
+    .box img[src]:hover{
+      filter: blur(0px);
+    }
+    .box:hover::after {
+      /* display: none; */
+      height:0;
+    }
+    .miui {
+      width: 60px;
+      height: 60px;
+      margin: 8px 12px;
+      border-radius: 20px;
+      background: url(img/MiYE.png) no-repeat;
+      background-size: 150%;
+      /* 12》-46 */
+      background-position: 12px ;
+      background-color: #ff6a00;
+      /* 设置所有样式转换 */
+      transition: all .1s;
+    }
+    .miui:hover {
+      background-position: -46px;
+    }
+    :root {
+      --width: calc(60%);
+      --hight:15px;
+      --color:#e01222;
+    }
+    .progressbar {
+      overflow: hidden;
+      width: var(--width);
+      height: var(--hight);
+      margin: 8px 12px;
+      padding: 1px;
+      border-radius: var(--hight);
+      border: 1px solid var(--color);
+    }
+    .progress {
+      width: calc(100%);
+      height: 100%;
+      border-radius: var(--hight);
+      background-color: var(--color);
+      transition: width .3s;
+    }
+    /* 直接选择子元素的盒子会导致重新计算的bug */
+    .progressbar:hover .progress {
+      width: 20%;
+    }
+
+  </style>
+</head>
+<body>
+  <h6>模拟小米logo</h6>
+  <div class="miui"></div>
+  <h6>图片遮罩显示</h6>
+  <div class="box">
+    <img src="img/linglong.jpg" alt="">
+  </div>
+  <h6>进度条模拟</h6>
+  <div class="progressbar">
+    <div class="progress"></div>
+  </div>
+</body>
+</html>
