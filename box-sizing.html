@@ -1,0 +1,67 @@
+<!--
+ * @Author: yehuda
+ * @Date: 2022-02-23 13:02:15
+ * @LastEditTime: 2022-02-23 13:17:34
+ * @LastEditors: yehuda
+ * @Description: box-sizing盒子模型设计(CSS3特性)
+ * @FilePath: \CSS\box-sizing.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>box-sizing盒子模型</title>
+		<style>
+			.normal {
+        width: 300px;
+        height: 100px;
+        margin: 30px;
+        padding: 30px;
+        background-color: orange;
+        border: 5px red solid;
+        box-sizing: content-box;
+        text-align: center;
+			}
+			.borderbox {
+        width: 300px;
+        height: 100px;
+        margin: 30px;
+        padding: 30px;
+        background-color:dodgerblue;
+        border: 5px red solid;
+        box-sizing: border-box;
+        text-align: center;
+			}
+			.borderbox {
+        width: 300px;
+        height: 100px;
+        margin: 30px;
+        padding: 30px;
+        background-color:dodgerblue;
+        border: 5px red solid;
+        box-sizing: border-box;
+        text-align: center;
+			}
+      .transpose {
+        display: block;
+        width: 300px;
+        height: 100px;
+        margin: 30px;
+        padding: 30px;
+        background-color:dodgerblue;
+        border: 5px red solid;
+        box-sizing: border-box;
+        text-align: center;
+      }
+		</style>
+	</head>
+	<body>
+    <h3>box-sizing: content-box;</h3>
+    <div class="normal">Just for you!</div>
+    <h3>box-sizing: border-box;</h3>
+    <div class="borderbox">Just for you!</div>
+    <span class="transpose">Just for you!</span>
+  </body>
+</html>
