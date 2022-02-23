@@ -1,7 +1,7 @@
 <!--
  * @Author: yehuda
  * @Date: 2022-02-16 18:01:03
- * @LastEditTime: 2022-02-16 18:03:59
+ * @LastEditTime: 2022-02-23 12:03:37
  * @LastEditors: yehuda
  * @Description: :before|:after使用双伪类元素清除浮动
  * @FilePath: \CSS\clearfloatByDoublePseudo.html
@@ -17,6 +17,7 @@
 		<style>
       .clearfix:before,.clearfix:after {
         content: '';
+				/* 转换为块级元素并且一行显示 */
         display: table;
       }
 			.clearfix:after {

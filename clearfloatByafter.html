@@ -1,7 +1,7 @@
 <!--
  * @Author: yehuda
  * @Date: 2022-02-16 17:43:31
- * @LastEditTime: 2022-02-16 17:49:04
+ * @LastEditTime: 2022-02-23 12:01:59
  * @LastEditors: yehuda
  * @Description: 使用:after伪元素法清除浮动
  * @FilePath: \CSS\clearfloatByafter.html
@@ -16,10 +16,15 @@
 		<style>
 			/* 固定的样式写法 */
       .clearfix:after {
+				/* 伪元素必须要写的属性 */
         content: '';
+				/* 将伪元素默认的行内属性转换为块级标签 */
         display: block;
+				/* 不要看见这个元素 */
         height: 0;
+				/* 核心代码清除浮动 */
         clear: both;
+				/* 不要看见这个元素 */
         visibility: hidden;
       }
       .clearfix {
