@@ -1371,6 +1371,12 @@ bug:图片底侧会有一个空白间隙，原因是行内块元素会和文字�
 
 ## 溢出文字省略号显示
 
+`text-overflow`是CSS3中的属性，它规定了**当文本溢出其包含元素时以何种方式显示**。但在使用的时候，有时会发现这个`text-overflow`设置了属性怎么不起作用呀？现在我们就来踩踩这里面的坑。
+
+- `clip`：**默认值**，将溢出的文本裁减掉
+- `ellipsis`：将溢出的文本用省略号(...)来表示
+- `<string>`：设置一个字符串用来表示溢出的文本
+
 ### 单行文本溢出
 
 单行文本溢出显示省略号--必须满足三个条件
@@ -1643,13 +1649,169 @@ calc() 此CSS函数让你在声明CSS属性值时执行一些计算。
 
 
 
-案例：[filter/calc/过渡效果案例](https://yehudah0912.github.io/transition.html)
+案例：<a href="https://yehudah0912.github.io/transition.html" target="_blank">filter/calc/过渡效果案例</a>
+
+### CSS3字体抗锯齿
+
+CSS3里面加入了一个`-webkit-font-smoothing`属性。
+
+这个属性可以使页面上的字体抗锯齿,使用后字体看起来会更清晰舒服。
+
+加上之后就顿时感觉页面小清晰了。 淘宝也在用哦！
+
+它有三个属性： 
+
+| 属性                 | 作用                 |
+| -------------------- | -------------------- |
+| none                 | 对低像素的文本比较好 |
+| subpixel-antialiased | 默认值               |
+| antialiased          | 抗锯齿很好  反锯齿   |
+
+
+
+## 品优购项目规划
+
+### 网站制作过程
+
+![image-20220224095653682](https://gitee.com/lvyehao/assets/raw/master/img/image-20220224095653682.png)
 
 
 
 
 
+### 品优购项目搭建工作
 
+基本文件创建
+
+| 名称              | 说明       |
+| ----------------- | ---------- |
+| 首页              | index.html |
+| CSS初始化样式文件 | base.css   |
+| CSS公共样式文件   | common.css |
+
+模块化开发
+
+- 有些样式和结构在很多页面都会出现，比如页面头部和底部，大部分页面都有。此时，可以把这些结构和样式单独作为一个模块，然后重复使用
+- 这里最典型的应用就是common.css公共样式。写好一个样式，其余的页面用到这些相同的样式。
+- 模块化开发具有重复作用、修改方便等优点
+
+### 网站favicon图标
+
+favicon.ico一般用于作为缩略的网站标志，它显示在浏览器的地址栏或者标签上。
+
+目前主要的浏览器都支持favicon.ico图标。
+
+![image-20220224102159657](https://gitee.com/lvyehao/assets/raw/master/img/image-20220224102159657.png)
+
+
+
+1. 制作favicon图标
+
+   - 将格式转换成ico图标，有在线转换工具 比如：比特虫  https://www.bitbug.net/
+
+2. favicon图标方法哦网站根目录下
+
+3. HTML页面引入favicon图标
+
+   > 在HTML页面里面的<head></head>>元素之间引入代码
+   >
+   > `<link rel=”shortcut icon” href=“favicon.ico” type=“image/x-icon”/>`
+
+
+
+### 网站TDK三大标签SEO优化
+
+SEO(Search Engine Optimization) 汉译为搜索引擎优化，是一种利用搜索引擎的规则提高网站在有关搜索引擎内自然排名的方式。
+
+SEO的目的是对网站进行深度优化，从而帮助网站获取免费的流量，进而帮助网站获取免费的流量，进而在搜索引擎上提升网站的排名，提高网站的知名度。
+
+页面有三个标签用来符合SEO优化，分别是 `title` `description` `keyword`
+
+==有专门的SEO人员进行权重优化。==
+
+ 
+
+| 名称                | 作用\|\|说明                                                 |
+| ------------------- | ------------------------------------------------------------ |
+| title网站标题       | title具有不可替代性，是我们内页的第一个重要标签，是搜索引擎了解网页的入口和对网页主题归属的最佳判断点。建议：`网站名(产品名)-网站的介绍(尽量不要超过30个汉字)`例如：京东(JD.COM)-正品低价、品质保障、配送及时、轻松购物！ |
+| description网站说明 | 简要说明我们网站主要是做什么的。                             |
+| keywords关键字      | keywords是页面关键字，是搜索引擎的关注点之一。 keywords最好限制在6-8个关键词，关键词之间用==英文逗号隔开==，采用==关键词1,关键词==的形式。 |
+
+
+
+**京东网站SEO优化**
+
+```html
+<title>京东(JD.COM)-正品低价、品质保障、配送及时、轻松购物！</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+<meta name="description" content="京东JD.COM-专业的综合网上购物商城，为您提供正品低价的购物选择、优质便捷的服务体验。商品来自全球数十万品牌商家，囊括家电、手机、电脑、服装、居家、母婴、美妆、个护、食品、生鲜等丰富品类，满足各种购物需求。"/>
+<meta name="Keywords" content="网上购物,网上商城,家电,手机,电脑,服装,居家,母婴,美妆,个护,食品,生鲜,京东"/>
+```
+
+
+
+### 品优购首页制作
+
+**常用模块类名的命名**
+
+参考： [CSS新手之常用样式命名规范标准](https://www.afengge.net/350.html)
+
+
+
+### Logo SEO 优化
+
+1. logo里面首先放一个h1标签，目的是为了提权，告诉搜索引擎，这个地方很重要。
+2. h1里面再放一个连接，可以返回首页的，把logo的背景图片给链接即可。
+3. 为了搜索引擎能收录，我们连接里面要放文字(网站名称)，但是文字不要显示出来。
+   - 方法1：`text-indent`移动到盒子外面(`text-indent: -9999px`),然后`overflow:hidden`,淘宝的做法。
+   - 方法2：直接给`font-size:0;`就看不到文字了，京东做法。
+4. 最后给链接一个title属性，这样鼠标就放到logo上就可以看到提示文字了。
+
+
+
+实现：
+
+```html
+<style>
+.header {
+  position: relative;
+  height: 105px;
+  background-color: pink;
+}
+.logo {
+  position: absolute;
+  top: 25px;
+  width: 171px;
+  height: 61px;
+  background-color: skyblue;
+}
+.logo a {
+  display: block;
+  width: 171px;
+  height: 61px;
+   /* 京东做法 */
+  font-size: 0px;
+  /* 淘宝做法 */
+  text-indent: -9999px;
+  overflow: hidden;
+  background: url(../img/logo.png) no-repeat;
+}
+</style>
+
+<!-- logo模块 -->
+<div class="logo">
+  <h1>
+    <a href="index.html" title="品优购商城">品优购商城</a>
+  </h1>
+</div>
+```
+
+
+
+### 品优购经验总结
+
+- 动画效果transparent 、 transform 有关位置的动画效果只对块级元素起作用。
+- text-overflow文字省略，需要文本元素为块级元素。对span不起作用。
 
 
 
