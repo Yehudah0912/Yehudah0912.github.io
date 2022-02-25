@@ -1,7 +1,7 @@
 <!--
  * @Author: yehuda
  * @Date: 2022-02-25 14:11:15
- * @LastEditTime: 2022-02-25 16:07:21
+ * @LastEditTime: 2022-02-25 17:28:31
  * @LastEditors: yehuda
  * @Description: 塔标注数据显示
  * @FilePath: \CSS\towerTab.html
@@ -11,6 +11,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>塔标注数据显示</title>
 		<style>
 			* {
@@ -18,17 +19,28 @@
 				padding: 0;
 				box-sizing: border-box;
 			}
+			body {
+				background: #ccc;
+			}
 			.tower {
-        position: relative;
+				/* 显示盒子一半当放大倍率大时有移动的位置消失 */
+				position: absolute;
+				top: 55%;
+				left: 50%;
+				width: 1300px;
+				height: 1300px;
+				transform: translate(-50%,-50%);
+				background-color: transparent;
+				/* border: 1px red solid; */
+			}
+			.tower img {
+				float: left;
 				width: 100%;
-				height: 100vh;
-				background: #ccc url(img/tower.png) no-repeat;
-				background-position: 50% 40%;
-				background-size: 65%;
+				height: 100%;
 			}
 			.storey {
 				position: absolute;
-				top: 35%;
+				top: 36%;
 				left: 51%;
 			}
 			.dotted {
@@ -75,8 +87,8 @@
 	</head>
 	<body>
 		<div class="tower">
+			<img src="img/tower.png">
 			<div class="storey">
-				<!-- <p>牛头</p> -->
 				<div class="dotted"></div>
 				<div class="pulse1"></div>
 				<div class="pulse2"></div>
