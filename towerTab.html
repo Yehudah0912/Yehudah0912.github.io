@@ -1,0 +1,91 @@
+<!--
+ * @Author: yehuda
+ * @Date: 2022-02-25 14:11:15
+ * @LastEditTime: 2022-02-25 16:07:21
+ * @LastEditors: yehuda
+ * @Description: 塔标注数据显示
+ * @FilePath: \CSS\towerTab.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>塔标注数据显示</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			.tower {
+        position: relative;
+				width: 100%;
+				height: 100vh;
+				background: #ccc url(img/tower.png) no-repeat;
+				background-position: 50% 40%;
+				background-size: 65%;
+			}
+			.storey {
+				position: absolute;
+				top: 35%;
+				left: 51%;
+			}
+			.dotted {
+				float: left;
+				width: 4px;
+				height: 4px;
+				background-color: rgb(196, 5, 5);
+				border-radius: 50%;
+        opacity: .4;
+			}
+			.storey div[class^='pulse'] {
+				/* 保证元素在父盒子水平垂直居中 */
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 8px;
+				height: 8px;
+				box-shadow: 0 0 12px red;
+				border-radius: 50%;
+				animation: pulse 1.2s linear infinite;
+			}
+			.storey div.pulse2 {
+				animation-delay: 0.4s;
+			}
+			.storey div.pulse3 {
+				animation-delay: 0.8s;
+			}
+			@keyframes pulse {
+				0% {
+				}
+				70% {
+					width: 40px;
+					height: 40px;
+					opacity: 1;
+				}
+				100% {
+					width: 40px;
+					height: 40px;
+					opacity: 0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="tower">
+			<div class="storey">
+				<!-- <p>牛头</p> -->
+				<div class="dotted"></div>
+				<div class="pulse1"></div>
+				<div class="pulse2"></div>
+				<div class="pulse3"></div>
+			</div>
+		</div>
+
+		<!-- <div class="pulse2">二郎</div>
+  <div class="pulse3">狐仙</div>
+  <div class="pulse4">判官</div> -->
+	</body>
+</html>
