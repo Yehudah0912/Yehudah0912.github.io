@@ -28,6 +28,22 @@
 	content: '\ea50';
 	margin-left: 10px;
 }
+/* 利用边框和旋转做箭头 */
+/* .dropdownicon {
+  position: relative;
+}
+.dropdownicon::after {
+  position: absolute;
+  top: 13px;
+  right: -7px;
+  content: '';
+  width: 3px;
+  height: 3px;
+  margin-right: 5px;
+  border-right: 1px solid #666666;
+  border-bottom: 1px solid #666666;
+  transform:rotate(45deg);
+} */
 .style_red {
 	color: #c81623;
 }
@@ -109,7 +125,8 @@
 .tuijian ul li a:hover {
   display: block;
   transform: translateY(-1px);
-  transform: translateX(1px);
+  /* 变形不会影响原来的页面布局 */
+  transform: scale(1.2);
 }
 .tuijian ul li:nth-child(1) {
   margin-left: 5px ;

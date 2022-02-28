@@ -1,0 +1,53 @@
+<!--
+ * @Author: yehuda
+ * @Date: 2022-02-25 11:23:21
+ * @LastEditTime: 2022-02-25 11:49:41
+ * @LastEditors: yehuda
+ * @Description: 动画效果
+ * @FilePath: \CSS\animation.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>动画效果</title>
+		<style>
+      /* 定义动画 */
+			/* @keyframes ani {
+				from  {
+					transform: translate(0,0);
+				}
+				to {
+					transform: translate(1000px,400px);
+				}
+			} */
+			@keyframes ani {
+				0% {
+					transform: translate(0,0);
+				}
+				50% {
+					transform: translate(1000px,400px);
+				}
+        100% {
+          transform: translate(0,0);
+        }
+			}
+      .box {
+        width: 40px;
+        height: 20px;
+        background-color: pink;
+        /* 调用动画 */
+        animation-name: ani;
+        /* 设置动画持续时间 */
+        animation-duration: 60s;
+        animation-iteration-count: infinite;
+        transition: all 10s;
+      }
+		</style>
+	</head>
+	<body>
+    <div class="box"></div>
+  </body>
+</html>
