@@ -388,6 +388,8 @@ margin属性用于设置外边距，即**控制盒子和盒子之间的距离**�
 
 **嵌套块元素垂直外边距的塌陷**
 
+外边距合并问题：https://blog.csdn.net/songyi160/article/details/87891222
+
 对于两个嵌套关系(父子关系)的块级元素，父元素有上外边距同时子元素也有上边距，此时父元素会塌陷较大的外边距值。
 
 ![image-20220208103559955](https://gitee.com/lvyehao/assets/raw/master/img/image-20220208103559955.png)
@@ -876,7 +878,7 @@ li+a语义更清晰，一看就是有条理的列表型内容。
 1. 以浏览器可视窗口为参照点移动元素。
    - 跟父元素没有任何关系。
    - 不随滚动条滚动。
-2. 固定定位不在占有原先的位置。
+2. 固定定位不在占有原先的位置==(脱标)==。
 3. 固定定位也是脱标的，其实固定定位也可以看做是一种特殊的绝对定位。
 
 固定定位小技巧：**固定在版型右侧位置**
@@ -1257,7 +1259,7 @@ cursor: url(one.svg), url(two.svg) 5 5, progress;
 
 ### 取消表单轮廓线outline属性
 
-语法：`outline: none/0`
+语法：`outline: none/0`v
 
 outline语法
 
@@ -1859,6 +1861,30 @@ animation:动画名称 持续时间 运动曲线 何时开始 播放次数 是�
 参考笔记详情：https://blog.csdn.net/linziwang/article/details/121179198                  
 
 
+
+## linear-gradient() 函数背景线性渐变
+
+linear-gradient() 函数用于创建一个表示两种或多种颜色线性渐变的图片。
+
+语法：`background-image: linear-gradient(起始方向,颜色1,颜色2);`
+
+创建一个线性渐变，需要指定两种颜色，还可以实现不同方向（指定为一个角度）的渐变效果，如果不指定方向，默认从上到下渐变。
+
+```css
+/* 从上到下，蓝色渐变到红色 */
+linear-gradient(blue, red);
+/* 渐变轴为45度，从蓝色渐变到红色 */
+linear-gradient(45deg, blue, red);
+/* 从右下到左上、从蓝色渐变到红色 */
+linear-gradient(to left top, blue, red);
+/* 从下到上，从蓝色开始渐变、到高度40%位置是绿色渐变开始、最后以红色结束 */
+linear-gradient(0deg, blue, green 40%, red);
+```
+
+注意：
+
+- 背景渐变必须添加浏览器私有前缀
+- 起始方向可以是：方位名词 或者 度数 ，如果省略默认就是top。
 
 ## 品优购项目规划
 

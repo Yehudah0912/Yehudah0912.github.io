@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width initial-scale=1" />
+		<link
+			rel="icon"
+			type="image/x-icon"
+			href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRJREFUeNq0l0toE2EQx78km0dNfRxyCWK9FCvpSfGgN+splyAKghW8KPTQ0h5UNGKhFRVLaXsRLx7Ek1Qo9iKIJ3OQ4K2gWCsWwUiJ1rw2iXlsNrv+N51Amu5+2WySgR8U+u3OZOY/883aVFVlhYnzzIINgMcgDh6CjJWX2C08008ON8AVcBN8B+NA6GUANjAK1sE90NfwPx94Cj6Cg70I4DSIgpfgiMGZFXARiN0MYICcRikIPVsDI+ASiLVbAoFT5zC40ZTqRtsGd8ELoBiccYFJ4AFLoNgqA/U6b+jUuW4SWARD4DnHeRB8AgsNoh0lHzXTOrAWgKpUm+t82OClq2AY3OK0XQC8JYaMypnLi+znrx87JSjmU8zp6osKbq8NpvfSdSrHO045D4FZMMFrx2KxwBKpbVYulxo1oLKKVLDJlRJzur1McHnqmUqAGfAMyBwdjYH71I66JknlWDL1N/yvkF+uOdQToaoqTCrltGCYy9OfdQhuLYUpzq8+B55Q2nWtWq0WU+nEUjaXmUPN86a6QNNEuSAecAiuqpYRu8PZfGQQzIMLRo7hTM2IqeV0JhlWFCXWbhvuRC9LNRxOD3MhEJvdsZ9KMkktpmu5fHYN6Z6S5coHq3NgdyDQRrFS3gehfoNQ/QZC1QQWh8CmITAzs2GxzbtAdUIb/lI+yWRp9zyRKpIU/7M1vxWPHYNz3mzQrt0vNBvMZ8BIqE6Pl6Uz4ioEdhsl3+Q8FqBfHLRUAgOhfi4XslNiNh3hHPNRe44Z+bKyDyRo2JwEEY62xmn8cveEdjKgUBpbbT9BOhfo5DbU7S66A4xskG68UK9XMr07YIHUHWr3YaEDx1rw12gx9Vl9idUAzlK6T3SaPnuTyFrZUfAavO/QuaIXwClOW9XXtK+8C8ikRcjXngDqy+Vlg+XSwdkPzdgmbc0j5MuwC16B42Bau4e60CUZat9hWulMiVC7bR516FimTWqGpmfX25Bnb8Ad2iW7NohEEx8fdR2FzDi3MglXGvTRuN9pX8jXTXTS3g9O7eMgcfWMlTT7sdo+wAr0G3/PNQVk2v4LMADLxicPeIirQwAAAABJRU5ErkJggg=="
+		/>
+
+		<style type="text/css">
+			html {
+				overflow-x: initial !important;
+			}
+			:root {
+				--bg-color: #ffffff;
+				--text-color: #333333;
+				--select-text-bg-color: #b5d6fc;
+				--select-text-font-color: auto;
+				--monospace: 'Lucida Console', Consolas, 'Courier', monospace;
+				--title-bar-height: 20px;
+			}
+			.mac-os-11 {
+				--title-bar-height: 28px;
+			}
+			html {
+				font-size: 14px;
+				background-color: var(--bg-color);
+				color: var(--text-color);
+				font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+				-webkit-font-smoothing: antialiased;
+			}
+			body {
+				margin: 0px;
+				padding: 0px;
+				height: auto;
+				inset: 0px;
+				font-size: 1rem;
+				line-height: 1.42857;
+				overflow-x: hidden;
+				background: inherit;
+				tab-size: 4;
+			}
+			iframe {
+				margin: auto;
+			}
+			a.url {
+				word-break: break-all;
+			}
+			a:active,
+			a:hover {
+				outline: 0px;
+			}
+			.in-text-selection,
+			::selection {
+				text-shadow: none;
+				background: var(--select-text-bg-color);
+				color: var(--select-text-font-color);
+			}
+			#write {
+				margin: 0px auto;
+				height: auto;
+				width: inherit;
+				word-break: normal;
+				overflow-wrap: break-word;
+				position: relative;
+				white-space: normal;
+				overflow-x: visible;
+				padding-top: 36px;
+			}
+			#write.first-line-indent p {
+				text-indent: 2em;
+			}
+			#write.first-line-indent li p,
+			#write.first-line-indent p * {
+				text-indent: 0px;
+			}
+			#write.first-line-indent li {
+				margin-left: 2em;
+			}
+			.for-image #write {
+				padding-left: 8px;
+				padding-right: 8px;
+			}
+			body.typora-export {
+				padding-left: 30px;
+				padding-right: 30px;
+			}
+			.typora-export .footnote-line,
+			.typora-export li,
+			.typora-export p {
+				white-space: pre-wrap;
+			}
+			.typora-export .task-list-item input {
+				pointer-events: none;
+			}
+			@media screen and (max-width: 500px) {
+				body.typora-export {
+					padding-left: 0px;
+					padding-right: 0px;
+				}
+				#write {
+					padding-left: 20px;
+					padding-right: 20px;
+				}
+				.CodeMirror-sizer {
+					margin-left: 0px !important;
+				}
+				.CodeMirror-gutters {
+					display: none !important;
+				}
+			}
+			#write li > figure:last-child {
+				margin-bottom: 0.5rem;
+			}
+			#write ol,
+			#write ul {
+				position: relative;
+			}
+			img {
+				max-width: 100%;
+				vertical-align: middle;
+				image-orientation: from-image;
+			}
+			button,
+			input,
+			select,
+			textarea {
+				color: inherit;
+				font: inherit;
+			}
+			input[type='checkbox'],
+			input[type='radio'] {
+				line-height: normal;
+				padding: 0px;
+			}
+			*,
+			::after,
+			::before {
+				box-sizing: border-box;
+			}
+			#write h1,
+			#write h2,
+			#write h3,
+			#write h4,
+			#write h5,
+			#write h6,
+			#write p,
+			#write pre {
+				width: inherit;
+			}
+			#write h1,
+			#write h2,
+			#write h3,
+			#write h4,
+			#write h5,
+			#write h6,
+			#write p {
+				position: relative;
+			}
+			p {
+				line-height: inherit;
+			}
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				break-after: avoid-page;
+				break-inside: avoid;
+				orphans: 4;
+			}
+			p {
+				orphans: 4;
+			}
+			h1 {
+				font-size: 2rem;
+			}
+			h2 {
+				font-size: 1.8rem;
+			}
+			h3 {
+				font-size: 1.6rem;
+			}
+			h4 {
+				font-size: 1.4rem;
+			}
+			h5 {
+				font-size: 1.2rem;
+			}
+			h6 {
+				font-size: 1rem;
+			}
+			.md-math-block,
+			.md-rawblock,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			p {
+				margin-top: 1rem;
+				margin-bottom: 1rem;
+			}
+			.hidden {
+				display: none;
+			}
+			.md-blockmeta {
+				color: rgb(204, 204, 204);
+				font-weight: 700;
+				font-style: italic;
+			}
+			a {
+				cursor: pointer;
+			}
+			sup.md-footnote {
+				padding: 2px 4px;
+				background-color: rgba(238, 238, 238, 0.7);
+				color: rgb(85, 85, 85);
+				border-radius: 4px;
+				cursor: pointer;
+			}
+			sup.md-footnote a,
+			sup.md-footnote a:hover {
+				color: inherit;
+				text-transform: inherit;
+				text-decoration: inherit;
+			}
+			#write input[type='checkbox'] {
+				cursor: pointer;
+				width: inherit;
+				height: inherit;
+			}
+			figure {
+				overflow-x: auto;
+				margin: 1.2em 0px;
+				max-width: calc(100% + 16px);
+				padding: 0px;
+			}
+			figure > table {
+				margin: 0px;
+			}
+			tr {
+				break-inside: avoid;
+				break-after: auto;
+			}
+			thead {
+				display: table-header-group;
+			}
+			table {
+				border-collapse: collapse;
+				border-spacing: 0px;
+				width: 100%;
+				overflow: auto;
+				break-inside: auto;
+				text-align: left;
+			}
+			table.md-table td {
+				min-width: 32px;
+			}
+			.CodeMirror-gutters {
+				border-right: 0px;
+				background-color: inherit;
+			}
+			.CodeMirror-linenumber {
+				user-select: none;
+			}
+			.CodeMirror {
+				text-align: left;
+			}
+			.CodeMirror-placeholder {
+				opacity: 0.3;
+			}
+			.CodeMirror pre {
+				padding: 0px 4px;
+			}
+			.CodeMirror-lines {
+				padding: 0px;
+			}
+			div.hr:focus {
+				cursor: none;
+			}
+			#write pre {
+				white-space: pre-wrap;
+			}
+			#write.fences-no-line-wrapping pre {
+				white-space: pre;
+			}
+			#write pre.ty-contain-cm {
+				white-space: normal;
+			}
+			.CodeMirror-gutters {
+				margin-right: 4px;
+			}
+			.md-fences {
+				font-size: 0.9rem;
+				display: block;
+				break-inside: avoid;
+				text-align: left;
+				overflow: visible;
+				white-space: pre;
+				background: inherit;
+				position: relative !important;
+			}
+			.md-fences-adv-panel {
+				width: 100%;
+				margin-top: 10px;
+				text-align: center;
+				padding-top: 0px;
+				padding-bottom: 8px;
+				overflow-x: auto;
+			}
+			#write .md-fences.mock-cm {
+				white-space: pre-wrap;
+			}
+			.md-fences.md-fences-with-lineno {
+				padding-left: 0px;
+			}
+			#write.fences-no-line-wrapping .md-fences.mock-cm {
+				white-space: pre;
+				overflow-x: auto;
+			}
+			.md-fences.mock-cm.md-fences-with-lineno {
+				padding-left: 8px;
+			}
+			.CodeMirror-line,
+			twitterwidget {
+				break-inside: avoid;
+			}
+			.footnotes {
+				opacity: 0.8;
+				font-size: 0.9rem;
+				margin-top: 1em;
+				margin-bottom: 1em;
+			}
+			.footnotes + .footnotes {
+				margin-top: 0px;
+			}
+			.md-reset {
+				margin: 0px;
+				padding: 0px;
+				border: 0px;
+				outline: 0px;
+				vertical-align: top;
+				background: 0px 0px;
+				text-decoration: none;
+				text-shadow: none;
+				float: none;
+				position: static;
+				width: auto;
+				height: auto;
+				white-space: nowrap;
+				cursor: inherit;
+				-webkit-tap-highlight-color: transparent;
+				line-height: normal;
+				font-weight: 400;
+				text-align: left;
+				box-sizing: content-box;
+				direction: ltr;
+			}
+			li div {
+				padding-top: 0px;
+			}
+			blockquote {
+				margin: 1rem 0px;
+			}
+			li .mathjax-block,
+			li p {
+				margin: 0.5rem 0px;
+			}
+			li blockquote {
+				margin: 1rem 0px;
+			}
+			li {
+				margin: 0px;
+				position: relative;
+			}
+			blockquote > :last-child {
+				margin-bottom: 0px;
+			}
+			blockquote > :first-child,
+			li > :first-child {
+				margin-top: 0px;
+			}
+			.footnotes-area {
+				color: rgb(136, 136, 136);
+				margin-top: 0.714rem;
+				padding-bottom: 0.143rem;
+				white-space: normal;
+			}
+			#write .footnote-line {
+				white-space: pre-wrap;
+			}
+			@media print {
+				body,
+				html {
+					border: 1px solid transparent;
+					height: 99%;
+					break-after: avoid;
+					break-before: avoid;
+					font-variant-ligatures: no-common-ligatures;
+				}
+				#write {
+					margin-top: 0px;
+					padding-top: 0px;
+					border-color: transparent !important;
+				}
+				.typora-export * {
+					-webkit-print-color-adjust: exact;
+				}
+				.typora-export #write {
+					break-after: avoid;
+				}
+				.typora-export #write::after {
+					height: 0px;
+				}
+				.is-mac table {
+					break-inside: avoid;
+				}
+				.typora-export-show-outline .typora-export-sidebar {
+					display: none;
+				}
+			}
+			.footnote-line {
+				margin-top: 0.714em;
+				font-size: 0.7em;
+			}
+			a img,
+			img a {
+				cursor: pointer;
+			}
+			pre.md-meta-block {
+				font-size: 0.8rem;
+				min-height: 0.8rem;
+				white-space: pre-wrap;
+				background: rgb(204, 204, 204);
+				display: block;
+				overflow-x: hidden;
+			}
+			p > .md-image:only-child:not(.md-img-error) img,
+			p > img:only-child {
+				display: block;
+				margin: auto;
+			}
+			#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img {
+				left: -2em;
+				position: relative;
+			}
+			p > .md-image:only-child {
+				display: inline-block;
+				width: 100%;
+			}
+			#write .MathJax_Display {
+				margin: 0.8em 0px 0px;
+			}
+			.md-math-block {
+				width: 100%;
+			}
+			.md-math-block:not(:empty)::after {
+				display: none;
+			}
+			.MathJax_ref {
+				fill: currentcolor;
+			}
+			[contenteditable='true']:active,
+			[contenteditable='true']:focus,
+			[contenteditable='false']:active,
+			[contenteditable='false']:focus {
+				outline: 0px;
+				box-shadow: none;
+			}
+			.md-task-list-item {
+				position: relative;
+				list-style-type: none;
+			}
+			.task-list-item.md-task-list-item {
+				padding-left: 0px;
+			}
+			.md-task-list-item > input {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				margin-left: -1.2em;
+				margin-top: calc(1em - 10px);
+				border: none;
+			}
+			.math {
+				font-size: 1rem;
+			}
+			.md-toc {
+				min-height: 3.58rem;
+				position: relative;
+				font-size: 0.9rem;
+				border-radius: 10px;
+			}
+			.md-toc-content {
+				position: relative;
+				margin-left: 0px;
+			}
+			.md-toc-content::after,
+			.md-toc::after {
+				display: none;
+			}
+			.md-toc-item {
+				display: block;
+				color: rgb(65, 131, 196);
+			}
+			.md-toc-item a {
+				text-decoration: none;
+			}
+			.md-toc-inner:hover {
+				text-decoration: underline;
+			}
+			.md-toc-inner {
+				display: inline-block;
+				cursor: pointer;
+			}
+			.md-toc-h1 .md-toc-inner {
+				margin-left: 0px;
+				font-weight: 700;
+			}
+			.md-toc-h2 .md-toc-inner {
+				margin-left: 2em;
+			}
+			.md-toc-h3 .md-toc-inner {
+				margin-left: 4em;
+			}
+			.md-toc-h4 .md-toc-inner {
+				margin-left: 6em;
+			}
+			.md-toc-h5 .md-toc-inner {
+				margin-left: 8em;
+			}
+			.md-toc-h6 .md-toc-inner {
+				margin-left: 10em;
+			}
+			@media screen and (max-width: 48em) {
+				.md-toc-h3 .md-toc-inner {
+					margin-left: 3.5em;
+				}
+				.md-toc-h4 .md-toc-inner {
+					margin-left: 5em;
+				}
+				.md-toc-h5 .md-toc-inner {
+					margin-left: 6.5em;
+				}
+				.md-toc-h6 .md-toc-inner {
+					margin-left: 8em;
+				}
+			}
+			a.md-toc-inner {
+				font-size: inherit;
+				font-style: inherit;
+				font-weight: inherit;
+				line-height: inherit;
+			}
+			.footnote-line a:not(.reversefootnote) {
+				color: inherit;
+			}
+			.md-attr {
+				display: none;
+			}
+			.md-fn-count::after {
+				content: '.';
+			}
+			code,
+			pre,
+			samp,
+			tt {
+				font-family: var(--monospace);
+			}
+			kbd {
+				margin: 0px 0.1em;
+				padding: 0.1em 0.6em;
+				font-size: 0.8em;
+				color: rgb(36, 39, 41);
+				background: rgb(255, 255, 255);
+				border: 1px solid rgb(173, 179, 185);
+				border-radius: 3px;
+				box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset;
+				white-space: nowrap;
+				vertical-align: middle;
+			}
+			.md-comment {
+				color: rgb(162, 127, 3);
+				opacity: 0.8;
+				font-family: var(--monospace);
+			}
+			code {
+				text-align: left;
+				vertical-align: initial;
+			}
+			a.md-print-anchor {
+				white-space: pre !important;
+				border-width: initial !important;
+				border-style: none !important;
+				border-color: initial !important;
+				display: inline-block !important;
+				position: absolute !important;
+				width: 1px !important;
+				right: 0px !important;
+				outline: 0px !important;
+				background: 0px 0px !important;
+				text-decoration: initial !important;
+				text-shadow: initial !important;
+			}
+			.os-windows.monocolor-emoji .md-emoji {
+				font-family: 'Segoe UI Symbol', sans-serif;
+			}
+			.md-diagram-panel > svg {
+				max-width: 100%;
+			}
+			[lang='flow'] svg,
+			[lang='mermaid'] svg {
+				max-width: 100%;
+				height: auto;
+			}
+			[lang='mermaid'] .node text {
+				font-size: 1rem;
+			}
+			table tr th {
+				border-bottom: 0px;
+			}
+			video {
+				max-width: 100%;
+				display: block;
+				margin: 0px auto;
+			}
+			iframe {
+				max-width: 100%;
+				width: 100%;
+				border: none;
+			}
+			.highlight td,
+			.highlight tr {
+				border: 0px;
+			}
+			mark {
+				background: rgb(255, 255, 0);
+				color: rgb(0, 0, 0);
+			}
+			.md-html-inline .md-plain,
+			.md-html-inline strong,
+			mark .md-inline-math,
+			mark strong {
+				color: inherit;
+			}
+			.md-expand mark .md-meta {
+				opacity: 0.3 !important;
+			}
+			mark .md-meta {
+				color: rgb(0, 0, 0);
+			}
+			@media print {
+				.typora-export h1,
+				.typora-export h2,
+				.typora-export h3,
+				.typora-export h4,
+				.typora-export h5,
+				.typora-export h6 {
+					break-inside: avoid;
+				}
+			}
+			.md-diagram-panel .messageText {
+				stroke: none !important;
+			}
+			.md-diagram-panel .start-state {
+				fill: var(--node-fill);
+			}
+			.md-diagram-panel .edgeLabel rect {
+				opacity: 1 !important;
+			}
+			.md-fences.md-fences-math {
+				font-size: 1em;
+			}
+			.md-fences-advanced:not(.md-focus) {
+				padding: 0px;
+				white-space: nowrap;
+				border: 0px;
+			}
+			.md-fences-advanced:not(.md-focus) {
+				background: inherit;
+			}
+			.typora-export-show-outline .typora-export-content {
+				max-width: 1440px;
+				margin: auto;
+				display: flex;
+				flex-direction: row;
+			}
+			.typora-export-sidebar {
+				width: 300px;
+				font-size: 0.8rem;
+				margin-top: 80px;
+				margin-right: 18px;
+			}
+			.typora-export-show-outline #write {
+				--webkit-flex: 2;
+				flex: 2 1 0%;
+			}
+			.typora-export-sidebar .outline-content {
+				position: fixed;
+				top: 0px;
+				max-height: 100%;
+				overflow: hidden auto;
+				padding-bottom: 30px;
+				padding-top: 60px;
+				width: 300px;
+			}
+			@media screen and (max-width: 1024px) {
+				.typora-export-sidebar,
+				.typora-export-sidebar .outline-content {
+					width: 240px;
+				}
+			}
+			@media screen and (max-width: 800px) {
+				.typora-export-sidebar {
+					display: none;
+				}
+			}
+			.outline-content li,
+			.outline-content ul {
+				margin-left: 0px;
+				margin-right: 0px;
+				padding-left: 0px;
+				padding-right: 0px;
+				list-style: none;
+			}
+			.outline-content ul {
+				margin-top: 0px;
+				margin-bottom: 0px;
+			}
+			.outline-content strong {
+				font-weight: 400;
+			}
+			.outline-expander {
+				width: 1rem;
+				height: 1.42857rem;
+				position: relative;
+				display: table-cell;
+				vertical-align: middle;
+				cursor: pointer;
+				padding-left: 4px;
+			}
+			.outline-expander::before {
+				content: '';
+				position: relative;
+				font-family: Ionicons;
+				display: inline-block;
+				font-size: 8px;
+				vertical-align: middle;
+			}
+			.outline-item {
+				padding-top: 3px;
+				padding-bottom: 3px;
+				cursor: pointer;
+			}
+			.outline-expander:hover::before {
+				content: '';
+			}
+			.outline-h1 > .outline-item {
+				padding-left: 0px;
+			}
+			.outline-h2 > .outline-item {
+				padding-left: 1em;
+			}
+			.outline-h3 > .outline-item {
+				padding-left: 2em;
+			}
+			.outline-h4 > .outline-item {
+				padding-left: 3em;
+			}
+			.outline-h5 > .outline-item {
+				padding-left: 4em;
+			}
+			.outline-h6 > .outline-item {
+				padding-left: 5em;
+			}
+			.outline-label {
+				cursor: pointer;
+				display: table-cell;
+				vertical-align: middle;
+				text-decoration: none;
+				color: inherit;
+			}
+			.outline-label:hover {
+				text-decoration: underline;
+			}
+			.outline-item:hover {
+				border-color: rgb(245, 245, 245);
+				background-color: var(--item-hover-bg-color);
+			}
+			.outline-item:hover {
+				margin-left: -28px;
+				margin-right: -28px;
+				border-left: 28px solid transparent;
+				border-right: 28px solid transparent;
+			}
+			.outline-item-single .outline-expander::before,
+			.outline-item-single .outline-expander:hover::before {
+				display: none;
+			}
+			.outline-item-open > .outline-item > .outline-expander::before {
+				content: '';
+			}
+			.outline-children {
+				display: none;
+			}
+			.info-panel-tab-wrapper {
+				display: none;
+			}
+			.outline-item-open > .outline-children {
+				display: block;
+			}
+			.typora-export .outline-item {
+				padding-top: 1px;
+				padding-bottom: 1px;
+			}
+			.typora-export .outline-item:hover {
+				margin-right: -8px;
+				border-right: 8px solid transparent;
+			}
+			.typora-export .outline-expander::before {
+				content: '+';
+				font-family: inherit;
+				top: -1px;
+			}
+			.typora-export .outline-expander:hover::before,
+			.typora-export .outline-item-open > .outline-item > .outline-expander::before {
+				content: '−';
+			}
+			.typora-export-collapse-outline .outline-children {
+				display: none;
+			}
+			.typora-export-collapse-outline .outline-item-open > .outline-children,
+			.typora-export-no-collapse-outline .outline-children {
+				display: block;
+			}
+			.typora-export-no-collapse-outline .outline-expander::before {
+				content: '' !important;
+			}
+			.typora-export-show-outline .outline-item-active > .outline-item .outline-label {
+				font-weight: 700;
+			}
+			.md-inline-math-container mjx-container {
+				zoom: 0.95;
+			}
+
+			:root {
+				--title-color: #8064a9;
+				--text-color: #444444;
+				--light-text-color: #666666;
+				--lighter-text-color: #888888;
+				--link-color: #2aa899;
+				--code-color: #745fb5;
+
+				--shadow-color: #eee;
+				--border-quote: rgba(116, 95, 181, 0.2);
+				--border: #e7e7e7;
+				--link-bottom: #bbb;
+				--shadow: 3px 3px 10px var(--shadow-color);
+				--inline-code-bg: #f4f2f9;
+
+				--header-weight: normal;
+
+				--side-bar-bg-color: #fafafa;
+				--control-text-color: var(var(--light-text-color));
+				--active-file-text-color: var(--title-color);
+				--active-file-bg-color: var(--shadow-color);
+				--item-hover-bg-color: var(--shadow-color);
+				--active-file-border-color: var(var(--title-color));
+
+				--base-font: 'Helvetica Neue', -apple-system, Ubuntu, 'Microsoft YaHei', Helvetica,
+					'Nimbus Sans L', Arial, 'Liberation Sans', 'Noto Sans CJK SC', 'PingFang SC',
+					'Hiragino Sans GB', 'Source Han Sans SC', 'Source Han Sans CN', 'Wenquanyi Micro Hei',
+					'WenQuanYi Zen Hei', 'ST Heiti', SimHei, 'WenQuanYi Zen Hei Sharp', 'Source Sans Pro',
+					sans-serif;
+				--title-font: 'EB Garamond', Georgia, 'Noto Serif', 'Noto Serif CJK SC',
+					'Nimbus Roman No9 L', 'Songti SC', 'Source Han Serif SC', 'Source Han Serif CN', STSong,
+					'AR PL New Sung', 'AR PL SungtiL GB', NSimSun, SimSun, 'TW\-Sung', 'WenQuanYi Bitmap Song',
+					'AR PL UMing CN', 'AR PL UMing HK', 'AR PL UMing TW', 'AR PL UMing TW MBE', PMingLiU,
+					MingLiU, 'Ubuntu', 'Source Sans Pro', serif;
+				--monospace: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Sarasa Term SC', Monaco,
+					'Deja Vu Sans Mono', Consolas, 'Lucida Console', 'Andale Mono', 'Roboto Mono', Courier,
+					Monospace !important;
+			}
+
+			/* 打印 */
+			@media print {
+				html {
+					font-size: 0.9rem;
+				}
+
+				table,
+				pre {
+					page-break-inside: avoid;
+				}
+
+				pre {
+					word-wrap: break-word;
+				}
+				#write {
+					max-width: 100%;
+				}
+				@page {
+					size: A3; /* PDF output size */
+					margin-left: 0;
+					margin-right: 0;
+				}
+			}
+
+			html {
+				font-size: 16px;
+				-webkit-text-size-adjust: 100%;
+				-ms-text-size-adjust: 100%;
+				text-rendering: optimizelegibility;
+				-webkit-font-smoothing: initial;
+			}
+
+			body {
+				color: var(--text-color);
+				-webkit-font-smoothing: antialiased;
+				line-height: 1.6rem;
+				letter-spacing: 0;
+				overflow-x: hidden;
+			}
+
+			/* 页边距 和 页面大小 */
+			#write {
+				font-family: var(--base-font);
+				/* max-width: 914px; */
+				margin: 0 auto;
+				padding: 1rem 4rem;
+				padding-bottom: 100px;
+			}
+
+			#write p {
+				line-height: 1.6rem;
+				word-spacing: 0.05rem;
+			}
+
+			body > *:first-child {
+				margin-top: 0 !important;
+			}
+
+			body > *:last-child {
+				margin-bottom: 0 !important;
+			}
+
+			/* Link 链接 */
+			a {
+				color: var(--link-color);
+				text-decoration: none;
+			}
+			#write a {
+				border-bottom: 1px solid var(--link-bottom);
+			}
+			#write a:hover {
+				border-bottom: 1px solid var(--link-color);
+				/*   color: var(--link-color);
+    text-decoration: none; */
+			}
+
+			.md-content {
+				color: var(--light-text-color);
+			}
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				position: relative;
+				margin-top: 2rem;
+				margin-bottom: 1rem;
+				font-weight: var(--header-weight);
+				line-height: 1.3;
+				cursor: text;
+				color: var(--title-color);
+				font-family: var(--title-font);
+			}
+
+			h1 {
+				text-align: center;
+				font-size: 2.25em;
+				margin-bottom: 2rem;
+			}
+			h1:after {
+				content: '';
+				display: block;
+				margin: 0.2em auto 0;
+				width: 6rem;
+				height: 2px;
+				border-bottom: 2px solid var(--title-color);
+			}
+
+			h2 {
+				padding-left: 0.4em;
+				font-size: 1.75em;
+				border-left: 0.4em solid var(--title-color);
+				border-bottom: 1px solid var(--title-color);
+			}
+			h3 {
+				font-size: 1.5em;
+			}
+			h4 {
+				font-size: 1.3em;
+			}
+			h5 {
+				font-size: 1.2em;
+			}
+			h6 {
+				font-size: 1.1em;
+			}
+
+			p,
+			blockquote,
+			ul,
+			ol,
+			dl,
+			table {
+				margin: 0.8em 0;
+			}
+
+			/* horizontal rule */
+			hr {
+				margin: 1.5em auto;
+				border-top: 1px solid var(--border);
+			}
+
+			/* 列表 */
+			li > ol,
+			li > ul {
+				margin: 0 0;
+			}
+
+			li p.first {
+				display: inline-block;
+			}
+
+			ul,
+			ol {
+				padding-left: 2rem;
+			}
+
+			ul:first-child,
+			ol:first-child {
+				margin-top: 0;
+			}
+
+			ul:last-child,
+			ol:last-child {
+				margin-bottom: 0;
+			}
+
+			#write ol li,
+			ul li {
+				padding-left: 0.1rem;
+			}
+
+			/* 引用 */
+			blockquote {
+				border-left: 0.3rem solid var(--border-quote);
+				padding-left: 1em;
+				color: var(--light-text-color);
+				font-family: var(--base-font);
+			}
+
+			/* 表格 */
+			table {
+				margin-bottom: 1.25rem;
+			}
+			table th,
+			table td {
+				padding: 8px;
+				line-height: 1.25rem;
+				vertical-align: middle;
+				border: 1px solid #ddd;
+			}
+			table th {
+				font-weight: bold;
+			}
+			table thead th {
+				vertical-align: middle;
+			}
+			table tr:nth-child(2n),
+			thead {
+				background-color: #fcfcfc;
+			}
+
+			/* 粗体 */
+			#write strong {
+				padding: 0 2px;
+				font-weight: bold;
+			}
+
+			/* inline code */
+			#write code,
+			tt {
+				padding: 2px 4px;
+				border-radius: 0.3rem;
+				font-family: var(--monospace);
+				font-size: 0.9rem;
+				color: var(--code-color);
+				background-color: var(--inline-code-bg);
+				margin: 0 2px;
+			}
+
+			#write .md-footnote {
+				color: var(--code-color);
+				background-color: var(--inline-code-bg);
+			}
+
+			/* highlight. */
+			#write mark {
+				background: rgb(255, 255, 196);
+			}
+
+			#write del {
+				padding: 1px 2px;
+			}
+
+			.md-task-list-item > input {
+				margin-left: -1.3em;
+			}
+
+			#write pre.md-meta-block {
+				padding: 1rem;
+				font-size: 85%;
+				line-height: 1.45;
+				background-color: #f7f7f7;
+				border: 0;
+				border-radius: 3px;
+				color: #777777;
+				margin-top: 0 !important;
+			}
+
+			.mathjax-block > .code-tooltip {
+				bottom: 0.375rem;
+			}
+
+			/* 图片 */
+			.md-image > .md-meta {
+				border-radius: 3px;
+				font-family: var(--monospace);
+				padding: 2px 0 0 4px;
+				font-size: 0.9em;
+				color: inherit;
+			}
+			/* 图片靠左显示 */
+			/* p .md-image:only-child {
+  width: auto;
+  text-align: left;
+  margin-left: 2rem;
+} */
+
+			/* 写![shadow-...]() 显示图片阴影 */
+			img[alt|='shadow'] {
+				box-shadow: var(--shadow);
+			}
+
+			/* TOC: 加粗h2 */
+			#write a.md-toc-inner {
+				line-height: 1.6;
+				white-space: pre-line;
+				border-bottom: none;
+				color: var(--lighter-text-color);
+				font-size: 0.9rem;
+			}
+			/* .md-toc-h1 {
+  display: none;
+} */
+			.md-toc-h2 .md-toc-inner {
+				font-weight: bold;
+			}
+
+			header,
+			.context-menu,
+			.megamenu-content,
+			footer {
+				font-family: var(--base-font);
+			}
+
+			.file-node-content:hover .file-node-icon,
+			.file-node-content:hover .file-node-open-state {
+				visibility: visible;
+			}
+
+			.md-lang {
+				color: #b4654d;
+			}
+
+			.html-for-mac .context-menu {
+				--item-hover-bg-color: #e6f0fe;
+			}
+
+			/* Code fences */
+
+			/* border, bg, font */
+			.md-fences {
+				border: 1px solid var(--border);
+				border-radius: 5px;
+				background: #fdfdfd !important;
+				font-size: 0.9rem;
+			}
+			/* 代码框阴影 */
+			#write pre.md-fences {
+				display: block;
+				-webkit-overflow-scrolling: touch;
+				box-shadow: var(--shadow);
+			}
+
+			.cm-s-inner {
+				padding: 0.25rem;
+				border-radius: 0.25rem;
+			}
+
+			.cm-s-inner.CodeMirror,
+			.cm-s-inner .CodeMirror-gutters {
+				color: #3a3432 !important;
+				border: none;
+			}
+
+			.cm-s-inner .CodeMirror-gutters {
+				color: #6d8a88;
+			}
+
+			.cm-s-inner .CodeMirror-linenumber {
+				padding: 0 0.1rem 0 0.3rem;
+				color: #b8b5b4;
+			}
+
+			.cm-s-inner .CodeMirror-matchingbracket {
+				text-decoration: underline;
+				color: #a34e8f !important;
+			}
+
+			#fences-auto-suggest .active {
+				background: #ddd;
+			}
+
+			.cm-s-inner span.cm-comment {
+				color: #9daab6;
+			}
+			.cm-s-inner span.cm-builtin {
+				color: #0451a5;
+			}
+
+			/* language tip */
+			#write .code-tooltip {
+				border: 1px solid var(--border);
+			}
+
+			.auto-suggest-container {
+				border-color: #b4b4b4;
+			}
+
+			.auto-suggest-container .autoComplt-hint.active {
+				background: #b4b4b4;
+				color: inherit;
+			}
+
+			/* task list */
+			#write .md-task-list-item > input {
+				-webkit-appearance: initial;
+				display: block;
+				position: absolute;
+				border: 1px solid #b4b4b4;
+				border-radius: 0.2rem;
+				margin-top: 0.3rem;
+				height: 1rem;
+				width: 1rem;
+				transition: background 0.3s;
+			}
+
+			#write .md-task-list-item > input:focus {
+				outline: none;
+				box-shadow: none;
+			}
+
+			#write .md-task-list-item > input:hover {
+				background: #ddd;
+			}
+
+			#write .md-task-list-item > input[checked]::before {
+				content: '';
+				position: absolute;
+				top: 20%;
+				left: 50%;
+				height: 60%;
+				width: 2px;
+				transform: rotate(40deg);
+				background: #333;
+			}
+
+			#write .md-task-list-item > input[checked]::after {
+				content: '';
+				position: absolute;
+				top: 46%;
+				left: 25%;
+				height: 30%;
+				width: 2px;
+				transform: rotate(-40deg);
+				background: #333;
+			}
+
+			#write .md-task-list-item > p {
+				transition: color 0.3s, opacity 0.3s;
+			}
+
+			#write .md-task-list-item.task-list-done > p {
+				color: #b4b4b4;
+				text-decoration: line-through;
+			}
+
+			#write .md-task-list-item.task-list-done > p > .md-emoji {
+				opacity: 0.5;
+			}
+
+			#write .md-task-list-item.task-list-done > p > .md-link > a {
+				opacity: 0.6;
+			}
+
+			/* sidebar */
+			#typora-sidebar,
+			.typora-node #typora-sidebar {
+				box-shadow: 3px 0px 10px var(--shadow-color);
+			}
+			.sidebar-content-content {
+				font-size: 0.9rem;
+			}
+			@import '';
+
+			:root {
+				--title-color: var(--text-color);
+				--link-color: var(--lighter-text-color);
+				--code-color: #222222;
+				--border-quote: var(--border);
+				--header-weight: bold;
+				--inline-code-bg: #eee;
+			}
+		</style>
+		<title>推荐给容姐的电脑学习流程</title>
+	</head>
+	<body class="typora-export os-windows">
+		<div class="typora-export-content">
+			<div id="write" class="">
+				<p>&nbsp;</p>
+				<h1 id="推荐给容姐的电脑学习流程"><span>推荐给容姐的电脑学习流程</span></h1>
+				<h2 id="电脑的基本操作"><span>电脑的基本操作</span></h2>
+				<p>
+					<img
+						src="https://gitee.com/lvyehao/assets/raw/master/img/DDZ%5DWLYDH%60PJE@BC%5D%7BAN0DR.jpg"
+						referrerpolicy="no-referrer"
+						alt="img"
+					/>
+				</p>
+				<h3 id="资源管理器"><span>资源管理器</span></h3>
+				<p><span>存放电脑内部资源的大仓库</span></p>
+				<h3 id="对文件的存放"><span>对文件的存放</span></h3>
+				<p><span>对文件的移动、添加、修改、删除等等</span></p>
+				<p>
+					<img
+						src="https://gitee.com/lvyehao/assets/raw/master/img/image-20220310213312559.png"
+						referrerpolicy="no-referrer"
+						alt="image-20220310213312559"
+					/>
+				</p>
+				<h3 id="使用浏览器"><span>使用浏览器</span></h3>
+				<p>
+					<span
+						>浏览器是作为网络媒介通信的工具，用于上网。把电脑比作是自己家的话，浏览器就是将你带到外面的世界的通道。</span
+					>
+				</p>
+				<p>
+					<img
+						src="https://gitee.com/lvyehao/assets/raw/master/img/image-20220310213406552.png"
+						referrerpolicy="no-referrer"
+						alt="image-20220310213406552"
+					/>
+				</p>
+				<p><span>常用的浏览器：谷歌浏览器 | 火狐浏览器</span></p>
+				<p>
+					<img
+						src="https://gitee.com/lvyehao/assets/raw/master/img/image-20220310213524218.png"
+						referrerpolicy="no-referrer"
+						alt="image-20220310213524218"
+					/>
+				</p>
+				<p><span>常用网站：百度 | B站 等等</span></p>
+				<p>
+					<img
+						src="https://gitee.com/lvyehao/assets/raw/master/img/image-20220310213645763.png"
+						referrerpolicy="no-referrer"
+						alt="image-20220310213645763"
+					/>
+				</p>
+				<p>
+					<img
+						src="https://gitee.com/lvyehao/assets/raw/master/img/image-20220310213626873.png"
+						referrerpolicy="no-referrer"
+						alt="image-20220310213626873"
+					/>
+				</p>
+				<h2 id="常用的办公软件"><span>常用的办公软件</span></h2>
+				<p>
+					<img
+						src="https://gitee.com/lvyehao/assets/raw/master/img/image-20220310213942315.png"
+						referrerpolicy="no-referrer"
+						alt="image-20220310213942315"
+					/>
+				</p>
+				<h3 id="wps-word-用来制作文章写作文等等">
+					<code>WPS word</code><span> 用来制作文章，写作文等等</span>
+				</h3>
+				<p>
+					<img
+						src="https://gitee.com/lvyehao/assets/raw/master/img/image-20220310213845214.png"
+						referrerpolicy="no-referrer"
+						alt="image-20220310213845214"
+					/>
+				</p>
+				<h3 id="wps-excel用来做表格数据财务报表等等">
+					<code>WPS Excel</code><span>用来做表格数据，财务报表等等</span>
+				</h3>
+				<p>
+					<img
+						src="https://gitee.com/lvyehao/assets/raw/master/img/image-20220310214113482.png"
+						referrerpolicy="no-referrer"
+						alt="image-20220310214113482"
+					/>
+				</p>
+				<h3 id="wps-ppt制作开会演讲时用的幻灯片">
+					<span> </span><code>WPS PPT</code><span>制作开会演讲时用的幻灯片</span>
+				</h3>
+				<p>
+					<img
+						src="https://gitee.com/lvyehao/assets/raw/master/img/image-20220310214153793.png"
+						referrerpolicy="no-referrer"
+						alt="image-20220310214153793"
+					/>
+				</p>
+				<p>&nbsp;</p>
+				<h3 id="qq-微信什么的都可以在电脑上用慢慢习惯">
+					<code>QQ</code><span> </span><code>微信</code
+					><span>什么的都可以在电脑上用，慢慢习惯</span>
+				</h3>
+				<h3 id="学会截屏使用词典软件等等"><span>学会截屏，使用词典软件等等</span></h3>
+				<h3 id="在线写作文档现在也很常用"><span>在线写作文档，现在也很常用</span></h3>
+				<p>&nbsp;</p>
+				<p>
+					<span>理解：</span><code>WPS</code
+					><span>是国内做的一款集合上面三个功能为一身的软件，优点是免费。如果要模板的活有叫 </span
+					><code>稻壳模板</code
+					><span>的专门卖这些模板，网上也有很多这样的模板，通过浏览器来找。</span>
+				</p>
+				<p>
+					<span>office 是国外很早就有的，</span><code>WPS</code
+					><span
+						>是仿照它做的，优点是功能全面，缺点就是要收费还特别贵。当然，国内在浏览器上可以找到破解版。</span
+					>
+				</p>
+				<p>&nbsp;</p>
+				<p>
+					<strong><span>基本上电脑入门就是学会这些就已经算是超过大部分人了</span></strong
+					><span
+						>，我现在都没有精通这些软件，就只能说会用来做一些平常的文档够用。真正学的好的就是铁饭碗了，入门不是太难，要记得东西蛮多的。花点时间不要多久就会了。</span
+					>
+				</p>
+				<p>&nbsp;</p>
+				<p>
+					<span>大学里面有针对计算机基础的考试，叫</span><code>计算机一级、二级</code
+					><span>等等，淘宝上有很多练习系统，好像也不是很贵。</span>
+				</p>
+				<p>&nbsp;</p>
+				<p>
+					<span>我整理了一些学习视频，应该蛮不错的，</span><strong><span>免费</span></strong>
+				</p>
+				<p>
+					<span>就是在</span><code>Bilibili</code
+					><span>(B站)上，抽点时间在电脑面前边看边练习，很快就会了的，就跟玩手机一样。</span>
+				</p>
+				<p><span>主要还是要把打字学好，做什么操作都快。</span></p>
+				<h2 id="整理的学习资料"><span>整理的学习资料</span></h2>
+				<h3 id="实用有趣大学生必学的计算机基础课">
+					<span>【实用有趣】大学生必学的计算机基础课</span>
+				</h3>
+				<p>
+					<a
+						href="https://www.bilibili.com/video/BV13x411X71T?spm_id_from=333.337.search-card.all.click"
+						target="_blank"
+						class="url"
+						>https://www.bilibili.com/video/BV13x411X71T?spm_id_from=333.337.search-card.all.click</a
+					>
+				</p>
+				<h3 id="零基础电脑打字怎么学如何实现盲打高老师手把手演示实操">
+					<span>零基础电脑打字怎么学？如何实现盲打？高老师手把手演示实操！</span>
+				</h3>
+				<p>
+					<a
+						href="https://www.bilibili.com/video/BV1Sz411i7aM?spm_id_from=333.337.search-card.all.click"
+						target="_blank"
+						class="url"
+						>https://www.bilibili.com/video/BV1Sz411i7aM?spm_id_from=333.337.search-card.all.click</a
+					>
+				</p>
+				<h3 id="wps全套新手自学教程从零开始超详细讲解">
+					<span>【WPS】全套新手自学教程，从零开始超详细讲解</span>
+				</h3>
+				<p>
+					<a href="https://www.bilibili.com/video/BV1B441167Gk?p=11" target="_blank" class="url"
+						>https://www.bilibili.com/video/BV1B441167Gk?p=11</a
+					>
+				</p>
+				<h3 id="wps-office教程零基础wps2019）"><span>WPS Office教程零基础WPS（2019）</span></h3>
+				<p>
+					<a href="https://www.bilibili.com/video/BV16p4y1e7Xa" target="_blank" class="url"
+						>https://www.bilibili.com/video/BV16p4y1e7Xa</a
+					>
+				</p>
+				<p>&nbsp;</p>
+			</div>
+		</div>
+	</body>
+</html>
